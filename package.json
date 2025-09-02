@@ -1,0 +1,20 @@
+{
+  "name": "henry-chang-resume",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "homepage": "https://henry0325.github.io/Resume",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.0"
+  }
+}

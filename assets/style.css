@@ -1,6 +1,9 @@
 body {
   font-family: "Muli", sans-serif;
   line-height: 1.6;
+  background-color: #fff;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
 }
 
 h1, h2, h3, .navbar-brand {
@@ -16,4 +19,18 @@ h1, h2, h3, .navbar-brand {
   border-bottom: 2px solid #ddd;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background-color: #121212;
+  color: #f8f9fa;
+}
+
+.dark-mode .navbar {
+  background-color: #333 !important;
+}
+
+.dark-mode a {
+  color: #f8f9fa;
 }

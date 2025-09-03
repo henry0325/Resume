@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@400;700&family=Muli:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css" />
 </head>
-<body>
+<body class="light-mode">
   <!-- 導覽列 -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <div class="container">
@@ -26,6 +26,11 @@
           <li class="nav-item"><a class="nav-link" href="#performance">Performance</a></li>
           <li class="nav-item"><a class="nav-link" href="#community">Community</a></li>
         </ul>
+        <!-- Dark Mode / Language -->
+        <div class="d-flex ms-3">
+          <button id="langToggle" class="btn btn-outline-light btn-sm me-2">中文</button>
+          <button id="darkToggle" class="btn btn-outline-light btn-sm">🌙</button>
+        </div>
       </div>
     </div>
   </nav>
@@ -33,30 +38,26 @@
   <main class="container" style="padding-top: 5rem;">
     <!-- About -->
     <section id="about" class="resume-section">
-      <h1 class="mb-0">Henry Chang</h1>
-      <div class="subheading mb-3">Acoustic Engineer</div>
-      <p>3.8 years of experience as an acoustic engineer. Love exploring the unknown things and knowledge. Extremely motivated to constantly develop my skills and grow professionally.</p>
-      <p><strong>Address:</strong> 11F., No. 10, Wenlin N. Rd., Beitou Dist., Taipei City 112, Taiwan</p>
-      <p><strong>Email:</strong> <a href="mailto:henry_0325@yahoo.com.tw">henry_0325@yahoo.com.tw</a></p>
-      <p><strong>Phone:</strong> 0975-260-521</p>
-      <a href="assets/Henry-Chang.pdf" class="btn btn-outline-primary" target="_blank">Download PDF</a>
+      <h1 id="name" class="mb-0">Henry Chang</h1>
+      <div id="title" class="subheading mb-3"><strong>Acoustic Engineer</strong></div>
+      <p id="aboutText">
+        <strong>3.8 years</strong> of experience as an <strong>acoustic engineer</strong>. Love exploring the unknown things and knowledge. Extremely motivated to constantly develop my skills and grow professionally.
+      </p>
+      <p><strong>Address:</strong> <span id="address">11F., No. 10, Wenlin N. Rd., Beitou Dist., Taipei City 112, Taiwan</span></p>
+      <p><strong>Email:</strong> <a id="email" href="mailto:henry_0325@yahoo.com.tw">henry_0325@yahoo.com.tw</a></p>
+      <p><strong>Phone:</strong> <span id="phone">0975-260-521</span></p>
+      <a id="pdfBtn" href="assets/Henry-Chang.pdf" class="btn btn-outline-primary" target="_blank">Download PDF</a>
     </section>
 
     <!-- Skills -->
     <section id="skills" class="resume-section">
       <h2>Skills</h2>
-      <ul>
-        <li>Exceptional communication and computer skills</li>
-        <li>Done the work in a team or independent environment</li>
-        <li>Handling work under stress and multitasking</li>
-        <li>Accurately followed instructions and provide high-quality results</li>
-        <li>Highly effectively adapt and learn new things</li>
-      </ul>
-      <h3 class="mt-3">Thought &amp; Idea</h3>
-      <ul>
-        <li>Believe there is nothing “can't” achieve</li>
-        <li>Parental respect, work hard and enjoy life</li>
-        <li>Never too old to learn</li>
+      <ul id="skillsList">
+        <li><strong>Exceptional communication</strong> and computer skills</li>
+        <li>Work in a <strong>team or independently</strong></li>
+        <li><strong>Handle work under stress</strong> and multitasking</li>
+        <li>Follow instructions and provide <strong>high-quality results</strong></li>
+        <li>Quickly adapt and learn <strong>new things</strong></li>
       </ul>
     </section>
 
@@ -64,19 +65,18 @@
     <section id="experience" class="resume-section">
       <h2>Experience</h2>
       <div class="mb-4">
-        <h4>Wistron · Acoustic R&amp;D (Nov 2019 – 2023)</h4>
+        <h4><strong>Wistron</strong> · Acoustic R&amp;D (Nov 2019 – 2023)</h4>
         <ul>
-          <li>Collaboratively work with mechanical team to accomplish acoustic design.</li>
-          <li>Highly familiar with audio measurement analyzer (Audio Precision, SoundCheck).</li>
-          <li>Improved device performance by proposed changes to other teams.</li>
-          <li>Responsible for managing audio contact with GN Audio (Denmark).</li>
+          <li>Collaborated on <strong>acoustic design</strong> with mechanical team.</li>
+          <li>Used <strong>Audio Precision</strong> & <strong>SoundCheck</strong> for measurements.</li>
+          <li>Managed <strong>GN Audio</strong> (Denmark) acoustic projects.</li>
         </ul>
       </div>
       <div>
-        <h4>HTC · R&amp;D Intern (Sep 2013 – Sep 2014)</h4>
+        <h4><strong>HTC</strong> · R&amp;D Intern (Sep 2013 – Sep 2014)</h4>
         <ul>
-          <li>Learned and taught CAV 3D scan measurement.</li>
-          <li>Improved mobile deformation and stress measurement process.</li>
+          <li>Learned and taught <strong>CAV 3D scan</strong> measurement.</li>
+          <li>Improved <strong>mobile deformation and stress measurement</strong> process.</li>
         </ul>
       </div>
     </section>
@@ -91,9 +91,9 @@
     <section id="achievements" class="resume-section">
       <h2>Achievements</h2>
       <ul>
-        <li>Joined Wistron Acoustics; supported Avaya J189/K155/K175 from design to MP.</li>
-        <li>Collaborated on Gandalf acoustic design; promoted to senior engineer.</li>
-        <li>Used Python to automate processes; improved work efficiency.</li>
+        <li>Joined <strong>Wistron Acoustics</strong>; supported Avaya <strong>J189/K155/K175</strong>.</li>
+        <li>Worked on <strong>Gandalf acoustic design</strong>; promoted to <strong>senior engineer</strong>.</li>
+        <li>Used <strong>Python</strong> to automate processes and improve efficiency.</li>
       </ul>
     </section>
 
@@ -101,9 +101,9 @@
     <section id="performance" class="resume-section">
       <h2>Performance Improvement</h2>
       <ul>
-        <li>Reduced cycle time in manufacturing test by ~70%.</li>
-        <li>Improved higher frequency SPL by adding acoustic structure.</li>
-        <li>Created SoundCheck automated test sequences.</li>
+        <li>Reduced cycle time by <strong>70%</strong> (150 → 50 sec).</li>
+        <li>Improved <strong>SPL</strong> with acoustic structure modifications.</li>
+        <li>Created <strong>SoundCheck</strong> automated test sequences.</li>
       </ul>
     </section>
 
@@ -111,9 +111,9 @@
     <section id="community" class="resume-section">
       <h2>Community Work</h2>
       <ul>
-        <li>Art museum volunteer – Guided visitors to the exhibition area.</li>
-        <li>Yuli church volunteer – Lead children and make review videos.</li>
-        <li>Drama volunteer – Arrange and clean the environment.</li>
+        <li><strong>Art museum volunteer</strong> – Guided visitors.</li>
+        <li><strong>Yuli church volunteer</strong> – Led children activities.</li>
+        <li><strong>Drama volunteer</strong> – Arranged and cleaned environment.</li>
       </ul>
     </section>
   </main>
@@ -123,5 +123,6 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/script.js"></script>
 </body>
 </html>

@@ -59,7 +59,7 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
 .timeline {
   list-style: none;
   position: relative;
-  padding-left: 100px; /* 重要：內容整體往右，確保空間 */
+  padding-left: 10px; /* 重要：內容整體往右，確保空間 */
   margin: 0;
 }
 .timeline::before {

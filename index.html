@@ -13,69 +13,68 @@
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-  <div class="d-flex" id="layout">
+  <div class="d-flex flex-column flex-md-row" id="layout">
     <!-- Sidebar -->
     <aside class="sidebar d-flex flex-column align-items-center text-center p-3">
       <img src="assets/profile.jpg" alt="Profile" class="avatar mb-3">
-      <h2 id="name" class="text-white mb-1">Henry Chang</h2>
-      <p id="title" class="text-white small mb-3"><strong>Acoustic Engineer</strong></p>
+      <h2 id="name" class="mb-1">Henry Chang</h2>
+      <p id="title" class="small mb-3"><strong>Acoustic Engineer</strong></p>
       <nav class="nav flex-column w-100 mb-4" id="navLinks">
-        <a href="#about" class="nav-link text-white" data-i18n="nav.about">About</a>
-        <a href="#skills" class="nav-link text-white" data-i18n="nav.skills">Skills</a>
-        <a href="#experience" class="nav-link text-white" data-i18n="nav.experience">Experience</a>
-        <a href="#education" class="nav-link text-white" data-i18n="nav.education">Education</a>
-        <a href="#achievements" class="nav-link text-white" data-i18n="nav.achievements">Achievements</a>
-        <a href="#performance" class="nav-link text-white" data-i18n="nav.performance">Performance</a>
-        <a href="#community" class="nav-link text-white" data-i18n="nav.community">Community</a>
-        <a href="#contact" class="nav-link text-white" data-i18n="nav.contact">Contact</a>
+        <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+        <a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a>
+        <a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a>
+        <a href="#education" class="nav-link" data-i18n="nav.education">Education</a>
+        <a href="#achievements" class="nav-link" data-i18n="nav.achievements">Achievements</a>
+        <a href="#performance" class="nav-link" data-i18n="nav.performance">Performance</a>
+        <a href="#community" class="nav-link" data-i18n="nav.community">Community</a>
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
       </nav>
       <div class="d-flex gap-2">
-        <button id="langToggle" class="btn btn-outline-light btn-sm">中文</button>
-        <button id="darkToggle" class="btn btn-outline-light btn-sm">🌙</button>
+        <button id="langToggle" class="btn btn-outline-dark btn-sm">中文</button>
+        <button id="darkToggle" class="btn btn-outline-dark btn-sm">🌙</button>
       </div>
     </aside>
 
     <!-- Main content -->
     <main class="main-content flex-grow-1 p-4">
       <section id="about" class="resume-section" data-aos="fade-up">
-        <h2 data-i18n="nav.about">About</h2>
+        <h2>About</h2>
         <p id="aboutText">Loading...</p>
         <a id="pdfBtn" href="assets/Henry-Chang.pdf" class="btn btn-outline-primary" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
       </section>
 
       <section id="skills" class="resume-section" data-aos="fade-right">
-        <h2 data-i18n="nav.skills">Skills</h2>
+        <h2>Skills</h2>
         <div id="skillsList"></div>
-        <div class="row g-3 mt-3" id="skillBars"></div>
       </section>
 
       <section id="experience" class="resume-section" data-aos="fade-left">
-        <h2 data-i18n="nav.experience">Experience</h2>
+        <h2>Experience</h2>
         <ul class="timeline" id="expTimeline"></ul>
       </section>
 
       <section id="education" class="resume-section" data-aos="fade-up">
-        <h2 data-i18n="nav.education">Education</h2>
+        <h2>Education</h2>
         <div id="eduList"></div>
       </section>
 
       <section id="achievements" class="resume-section" data-aos="fade-up">
-        <h2 data-i18n="nav.achievements">Achievements</h2>
+        <h2>Achievements</h2>
         <ul id="achieveList"></ul>
       </section>
 
       <section id="performance" class="resume-section" data-aos="fade-up">
-        <h2 data-i18n="nav.performance">Performance Improvement</h2>
+        <h2>Performance Improvement</h2>
         <ul id="perfList"></ul>
       </section>
 
       <section id="community" class="resume-section" data-aos="fade-up">
-        <h2 data-i18n="nav.community">Community Work</h2>
+        <h2>Community Work</h2>
         <ul id="communityList"></ul>
       </section>
 
       <section id="contact" class="resume-section text-center" data-aos="fade-up">
-        <h2 data-i18n="nav.contact">Contact</h2>
+        <h2>Contact</h2>
         <p><i class="fa-solid fa-envelope"></i> <a id="contactEmail" href="mailto:henry_0325@yahoo.com.tw">henry_0325@yahoo.com.tw</a></p>
         <p><i class="fa-solid fa-phone"></i> <span id="contactPhone">0975-260-521</span></p>
       </section>

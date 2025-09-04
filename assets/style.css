@@ -1,39 +1,46 @@
-/* 基本設定 */
 body {
   margin: 0;
   font-family: "Muli", sans-serif;
   transition: background 0.3s, color 0.3s;
 }
+
 h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
 
-/* 版面 */
 #layout { min-height: 100vh; }
 
 /* Sidebar */
 .sidebar {
   width: 260px;
-  height: 100vh; /* 確保滿版 */
-  background: #0d6efd;
-  color: #fff;
+  height: 100vh;
+  background: #d6e9f8; /* 淡藍色 */
+  color: #333;
   position: fixed;
   top: 0; left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
 }
-.sidebar .nav-link { padding: 8px 0; text-align: left; }
-.sidebar .nav-link:hover { background: rgba(255,255,255,0.1); }
-.sidebar .avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; }
+.sidebar .nav-link {
+  padding: 8px 0;
+  color: #333;
+}
+.sidebar .nav-link:hover {
+  background: rgba(0,0,0,0.05);
+}
+.sidebar .avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
 /* Main content */
-.main-content { margin-left: 260px; background: #fff; color: #333; }
+.main-content {
+  margin-left: 260px;
+  background: #fff;
+  color: #333;
+  padding-bottom: 3rem;
+}
 .resume-section { margin-bottom: 3rem; }
 
-/* Dark mode */
-.dark-mode .sidebar { background: #222; }
-.dark-mode .main-content { background: #121212; color: #f8f9fa; }
-
-/* Timeline 修正藍點 */
+/* Timeline */
 .timeline {
   list-style: none;
   position: relative;
@@ -63,4 +70,20 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
   border-radius: 50%;
   z-index: 1;
 }
-.dark-mode .timeline li::before { border-color: #121212; }
+
+/* Dark mode */
+.dark-mode .sidebar {
+  background: #222;
+  color: #f8f9fa;
+}
+.dark-mode .main-content {
+  background: #121212;
+  color: #f8f9fa;
+}
+.dark-mode .timeline::before {
+  background: #f8f9fa;
+}
+.dark-mode .timeline li::before {
+  background: #f8f9fa;
+  border-color: #121212;
+}

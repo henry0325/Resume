@@ -45,6 +45,7 @@ let currentLang = 'en';
 // 你 PDF 的內容（可在這裡調整）
 const data = {
   en: {
+    nav: ["About", "Skills", "Experience", "Education", "Contact"],
     name: "Henry Chang",
     title: "<strong>Acoustic Engineer</strong>",
     about: "3.8 years of experience as an acoustic engineer. Love exploring the unknown things and knowledge. Extremely motivated to constantly develop my skills and grow professionally.",
@@ -104,6 +105,7 @@ const data = {
   },
 
   zh: {
+    nav: ["關於我", "技能", "經驗", "學歷", "聯絡資訊"],
     name: "張思緯",
     title: "聲學工程師",
     about: "擁有 3.8 年聲學工程師經驗，熱衷於探索與學習。專長於音訊量測、Python 自動化與跨部門協作。",
@@ -168,6 +170,10 @@ function render(lang = 'en') {
   const d = data[lang];
 
   // header / sidebar 基本
+  const navLinks = document.querySelectorAll('.sidebar .nav-link');
+  navLinks.forEach((link, i) => {
+    if (d.nav[i]) link.textContent = d.nav[i];
+  });
   const nameEl = document.getElementById('name');
   const titleEl = document.getElementById('title');
   if (nameEl) nameEl.textContent = d.name;

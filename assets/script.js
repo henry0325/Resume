@@ -270,11 +270,12 @@ if (prefersDark) document.body.classList.add('dark-mode');
 
 // Dark Mode Toggle
 const darkBtn = document.getElementById('darkToggle');
-darkBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  darkBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-});
-
+if (darkBtn) {
+  darkBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    darkBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+  });
+}
 // 回到頂部
 const toTop = document.getElementById('toTop');
 window.addEventListener('scroll', () => {
@@ -285,11 +286,13 @@ toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smoot
 // 語言切換
 let currentLang = 'en';
 const langBtn = document.getElementById('langToggle');
-langBtn.addEventListener('click', () => {
-  currentLang = currentLang === 'en' ? 'zh' : 'en';
-  render(currentLang);
-  langBtn.textContent = currentLang === 'en' ? '中文' : 'EN';
-});
+if (langBtn) {
+  langBtn.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'zh' : 'en';
+    render(currentLang);
+    langBtn.textContent = currentLang === 'en' ? '中文' : 'EN';
+  });
+}
 
 // 初始渲染
 render('en');

@@ -1,9 +1,11 @@
+// 完整功能版 script.js
+// 包含：語言切換、深色模式、內容 render、reveal 動畫（IntersectionObserver）、skill bar 動畫、回到頂端
+
 document.addEventListener('DOMContentLoaded', () => {
   const darkBtn = document.getElementById('darkToggle');
   const langBtn = document.getElementById('langToggle');
-  const backToTop = document.getElementById('backToTop');
+  const backBtn = document.getElementById('backToTop');
 
-  // Dark Mode 切換
   if (darkBtn) {
     darkBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
@@ -11,173 +13,273 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 語言切換
   if (langBtn) {
     langBtn.addEventListener('click', () => {
       currentLang = currentLang === 'en' ? 'zh' : 'en';
       render(currentLang);
       langBtn.textContent = currentLang === 'en' ? '中文' : 'EN';
+      // 重新觀察 reveal / skill bars
+      observeReveals();
+      observeSkillBars();
     });
   }
 
-  // 回到頂端按鈕顯示/隱藏
+  // back to top 按鈕顯示/隱藏
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {
-      backToTop.style.display = 'block';
-    } else {
-      backToTop.style.display = 'none';
-    }
+    if (!backBtn) return;
+    backBtn.style.display = window.scrollY > 220 ? 'inline-flex' : 'none';
   });
+  if (backBtn) backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // 回到頂端
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
+  // 初始 render
   render(currentLang);
+
+  // 啟用觀察（動畫）
+  observeReveals();
+  observeSkillBars();
 });
 
-let currentLang = "en";
+// 初始語言
+let currentLang = 'en';
 
-// 履歷資料
+// 你 PDF 的內容（可在這裡調整）
 const data = {
   en: {
-    about: "Acoustic Engineer with MEMS expertise and hands-on experience in audio system design and optimization.",
-    skills: ["Acoustic Design", "MEMS Process", "Python", "Dart", "Flutter", "Signal Processing"],
+    name: "Henry Chang",
+    title: "<strong>Acoustic Engineer</strong>",
+    about: "3.8 years of experience as an acoustic engineer. Love exploring the unknown things and knowledge. Extremely motivated to constantly develop my skills and grow professionally.",
+    skills: [
+      { name: "Acoustic Design", pct: 90 },
+      { name: "Audio Measurement (AP / SoundCheck)", pct: 85 },
+      { name: "Python & Automation", pct: 88 },
+      { name: "Signal Processing", pct: 80 },
+      { name: "Team Collaboration", pct: 95 }
+    ],
     experience: [
       {
-        company: "Wistron",
-        role: "Acoustic Engineer",
-        period: "2019-2022",
+        company: "<strong>Wistron</strong>",
+        role: "Acoustic R&D",
+        period: "Nov 2019 – 2023",
         details: [
-          "Developed microphone module for smart devices",
-          "Improved SNR by 10% through design optimization",
-          "Collaborated with cross-functional teams on acoustic simulations"
+          "Collaboratively work with mechanical team to accomplish acoustic design.",
+          "Highly familiar with audio measurement analyzer (Audio Precision, SoundCheck).",
+          "Proposed design changes to improve device performance and manufacturability.",
+          "Responsible for managing audio contact with GN Audio (Denmark)."
         ]
       },
       {
-        company: "HTC",
-        role: "Audio Engineer",
-        period: "2015-2019",
+        company: "<strong>HTC</strong>",
+        role: "R&D Intern",
+        period: "Sep 2013 – Sep 2014",
         details: [
-          "Optimized speaker tuning for flagship smartphones",
-          "Implemented audio algorithms to enhance clarity",
-          "Led testing and validation for audio performance"
+          "Learned and taught CAV 3D scan measurement.",
+          "Improved mobile deformation and stress measurement process.",
+          "Assisted in audio performance verification and test procedures."
         ]
       }
     ],
     education: [
-      "Master in Microelectromechanical Systems (MEMS)",
-      "Bachelor in Optical-Mechatronics Engineering"
+      "<strong>Ming Chi University of Technology</strong> — Master in Mechanical Engineering, 2018"
     ],
     achievements: [
-      "Project A: Reduced noise by 15% in MEMS microphones",
-      "Project B: Improved frequency response consistency across devices"
+      "Joined Wistron Acoustics; supported Avaya J189/K155/K175 from design to MP.",
+      "Collaborated on Gandalf acoustic design; promoted to senior engineer.",
+      "Used Python to automate processes and improved efficiency."
     ],
     performance: [
-      "Boosted audio performance by 20% in benchmark tests",
-      "Reduced latency in signal processing by 30%"
+      "Reduced cycle time by ~70% (150 → 50 sec) in manufacturing test.",
+      "Improved higher-frequency SPL by adding acoustic structure modifications.",
+      "Created SoundCheck automated test sequences."
     ],
     community: [
-      "Volunteer in STEM education for underprivileged students",
-      "Mentored junior engineers on audio technology"
-    ]
+      "Art museum volunteer – Guided visitors to exhibition areas.",
+      "Yuli church volunteer – Lead children and make review videos.",
+      "Drama volunteer – Arrange and clean environments."
+    ],
+    contact: {
+      email: "henry_0325@yahoo.com.tw",
+      phone: "0975-260-521",
+      address: "11F., No. 10, Wenlin N. Rd., Beitou Dist., Taipei City 112, Taiwan"
+    }
   },
+
   zh: {
-    about: "具有聲學與MEMS專業經驗的工程師，擅長音訊系統設計與優化。",
-    skills: ["聲學設計", "MEMS製程", "Python", "Dart", "Flutter", "訊號處理"],
+    name: "張思緯",
+    title: "聲學工程師",
+    about: "擁有 3.8 年聲學工程師經驗，熱衷於探索與學習。專長於音訊量測、Python 自動化與跨部門協作。",
+    skills: [
+      { name: "聲學設計", pct: 90 },
+      { name: "音訊量測 (AP / SoundCheck)", pct: 85 },
+      { name: "Python 自動化", pct: 88 },
+      { name: "訊號處理", pct: 80 },
+      { name: "團隊協作", pct: 95 }
+    ],
     experience: [
       {
-        company: "緯創",
-        role: "聲學工程師",
-        period: "2019-2022",
+        company: "<strong>緯創</strong>",
+        role: "聲學研發",
+        period: "2019/11 – 2023",
         details: [
-          "開發智慧裝置的麥克風模組",
-          "透過設計優化提升SNR 10%",
-          "與跨部門團隊合作進行聲學模擬"
+          "與機構團隊協作完成聲學設計。",
+          "熟悉音頻測試設備 (Audio Precision, SoundCheck)。",
+          "提出設計改善以提升效能與量產一致性。",
+          "負責與 GN Audio（丹麥）客戶之聲學溝通與測試。"
         ]
       },
       {
-        company: "宏達電",
-        role: "音訊工程師",
-        period: "2015-2019",
+        company: "<strong>宏達電</strong>",
+        role: "研發實習生",
+        period: "2013/09 – 2014/09",
         details: [
-          "優化旗艦智慧型手機的喇叭調音",
-          "實作音訊演算法以提高清晰度",
-          "負責音訊效能測試與驗證"
+          "學習並教授 CAV 3D 掃描量測。",
+          "優化手機變形與應力量測流程。",
+          "協助音訊效能測試與驗證程序。"
         ]
       }
     ],
     education: [
-      "微機電系統碩士 (MEMS)",
-      "光機電工程學士"
+      "<strong>明志科技大學</strong> — 機械工程所 碩士，2018"
     ],
     achievements: [
-      "專案A：降低MEMS麥克風噪音15%",
-      "專案B：提升裝置間頻率響應一致性"
+      "加入緯創聲學；支援 Avaya J189/K155/K175 從設計到量產。",
+      "參與 Gandalf 聲學設計並升任資深工程師。",
+      "運用 Python 自動化流程，顯著改善效率。"
     ],
     performance: [
-      "測試中音訊效能提升20%",
-      "訊號處理延遲降低30%"
+      "製造測試週期縮短約 70%（150 → 50 秒）。",
+      "於高頻段以結構改良提升 SPL 表現。",
+      "建立 SoundCheck 自動化測試流程。"
     ],
     community: [
-      "協助弱勢學生進行STEM教育",
-      "指導新進工程師音訊技術"
-    ]
+      "美術館志工 — 引導參觀動線與解說。",
+      "玉里教會志工 — 帶領孩童並製作回顧影片。",
+      "戲劇志工 — 場地布置與環境維護。"
+    ],
+    contact: {
+      email: "henry_0325@yahoo.com.tw",
+      phone: "0975-260-521",
+      address: "台北市北投區文林北路10號11樓"
+    }
   }
 };
 
-// 渲染頁面
-function render(lang) {
+// render 主函式（會把資料塞到 DOM）
+function render(lang = 'en') {
   const d = data[lang];
 
+  // header / sidebar 基本
+  const nameEl = document.getElementById('name');
+  const titleEl = document.getElementById('title');
+  if (nameEl) nameEl.textContent = d.name;
+  if (titleEl) titleEl.innerHTML = d.title;
+
   // About
-  document.getElementById('aboutText').textContent = d.about;
+  const aboutEl = document.getElementById('aboutText');
+  if (aboutEl) aboutEl.textContent = d.about;
 
-  // Skills
-  document.getElementById('skillsList').innerHTML = d.skills
-    .map(skill => `<span class="badge bg-primary me-1">${skill}</span>`)
-    .join('');
+  // Contact
+  const emailA = document.getElementById('contactEmail');
+  const phoneEl = document.getElementById('contactPhone');
+  const pdfBtn = document.getElementById('pdfBtn');
+  if (emailA) { emailA.href = `mailto:${d.contact.email}`; emailA.textContent = d.contact.email; }
+  if (phoneEl) phoneEl.textContent = d.contact.phone;
+  if (pdfBtn) pdfBtn.textContent = (lang === 'en' ? 'Download PDF' : '下載 PDF');
 
-  // Skills Bar
-  document.getElementById('skillBars').innerHTML = d.skills
-    .map(skill => `
-      <div class="col-6">
-        <p class="mb-1">${skill}</p>
-        <div class="progress">
-          <div class="progress-bar bg-info" role="progressbar" style="width: 0%" data-value="${Math.floor(Math.random() * 30) + 70}%"></div>
-        </div>
-      </div>
-    `)
-    .join('');
+  // Skills badges + bars
+  const skillsList = document.getElementById('skillsList');
+  const skillBars = document.getElementById('skillBars');
+  if (skillsList) skillsList.innerHTML = d.skills.map(s => `<span class="badge bg-primary me-1 mb-1">${s.name}</span>`).join('');
+  if (skillBars) skillBars.innerHTML = d.skills.map(s => `
+    <div class="col-md-6">
+      <div class="mb-1"><strong>${s.name}</strong> <span class="float-end">${s.pct}%</span></div>
+      <div class="progress"><div class="progress-bar" role="progressbar" style="width:0%" data-value="${s.pct}%"></div></div>
+    </div>
+  `).join('');
 
-  // Animate bars
-  setTimeout(() => {
-    document.querySelectorAll('.progress-bar').forEach(bar => {
-      bar.style.width = bar.getAttribute('data-value');
-    });
-  }, 300);
-
-  // Experience
-  document.getElementById('expTimeline').innerHTML = d.experience
-    .map(exp => `
+  // Experience timeline（每個 li 包 .timeline-panel）
+  const expEl = document.getElementById('expTimeline');
+  if (expEl) {
+    expEl.innerHTML = d.experience.map(item => `
       <li>
-        <h5>${exp.company} - <strong>${exp.role}</strong></h5>
-        <small>${exp.period}</small>
-        <ul>${exp.details.map(item => `<li>${item}</li>`).join('')}</ul>
+        <div class="timeline-panel reveal">
+          <h5>${item.company} · <strong>${item.role}</strong></h5>
+          <div class="text-muted small mb-2">${item.period}</div>
+          <ul>
+            ${item.details.map(pt => `<li>${pt}</li>`).join('')}
+          </ul>
+        </div>
       </li>
-    `)
-    .join('');
+    `).join('');
+  }
 
-  // Education
-  document.getElementById('eduList').innerHTML = d.education.map(e => `<p>${e}</p>`).join('');
+  // Education / Achievements / Performance / Community
+  const edu = document.getElementById('eduList');
+  if (edu) edu.innerHTML = d.education.map(e => `<p>${e}</p>`).join('');
+  const achieve = document.getElementById('achieveList');
+  if (achieve) achieve.innerHTML = d.achievements.map(a => `<li>${a}</li>`).join('');
+  const perf = document.getElementById('perfList');
+  if (perf) perf.innerHTML = d.performance.map(p => `<li>${p}</li>`).join('');
+  const comm = document.getElementById('communityList');
+  if (comm) comm.innerHTML = d.community.map(c => `<li>${c}</li>`).join('');
 
-  // Achievements
-  document.getElementById('achieveList').innerHTML = d.achievements.map(a => `<li>${a}</li>`).join('');
+  // 重新啟用觀察，讓 reveal / progress 會動
+  observeReveals();
+  observeSkillBars();
+}
 
-  // Performance
-  document.getElementById('perfList').innerHTML = d.performance.map(p => `<li>${p}</li>`).join('');
+/* ------------------------
+   Intersection Observer - reveal (scroll in)
+   ------------------------ */
+let revealObserver = null;
+function observeReveals() {
+  // disconnect old
+  if (revealObserver) revealObserver.disconnect();
 
-  // Community
-  document.getElementById('communityList').innerHTML = d.community.map(c => `<li>${c}</li>`).join('');
+  const reveals = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || reveals.length === 0) {
+    // 無支援就直接顯示
+    reveals.forEach(r => r.classList.add('in-view'));
+    return;
+  }
+
+  revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(r => {
+    r.classList.remove('in-view');
+    revealObserver.observe(r);
+  });
+}
+
+/* ------------------------
+   Intersection Observer - skill bars 動畫
+   ------------------------ */
+let skillObserver = null;
+function observeSkillBars() {
+  if (skillObserver) skillObserver.disconnect();
+  const bars = document.querySelectorAll('.progress-bar');
+  if (!('IntersectionObserver' in window) || bars.length === 0) {
+    bars.forEach(b => b.style.width = b.getAttribute('data-value') || '80%');
+    return;
+  }
+  skillObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target;
+        const val = bar.getAttribute('data-value') || '80%';
+        bar.style.width = val;
+        obs.unobserve(bar);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  bars.forEach(b => {
+    b.style.width = '0%';
+    skillObserver.observe(b);
+  });
 }

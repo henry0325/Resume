@@ -91,7 +91,7 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
 /* 內層細節保持正常圓點 */
 .timeline > li ul {
   list-style: disc;
-  padding-left: 20px;
+  padding-left: 200px;
   margin-top: 8px;
 }
 .timeline > li ul li {

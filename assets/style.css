@@ -47,7 +47,7 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
 .timeline {
   list-style: none;
   position: relative;
-  padding-left: 70px; /* 留更大空間 */
+  padding-left: 10px; /* 留更大空間 */
 }
 .timeline::before {
   content: '';

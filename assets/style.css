@@ -16,10 +16,13 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
   color: #333;
   position: fixed;
   top: 0; left: 0;
+  display: flex;
+  flex-direction: column;
 }
 .sidebar .nav-link {
   padding: 8px 0;
   color: #333;
+  font-weight: 500;
 }
 .sidebar .nav-link:hover {
   background: rgba(0,0,0,0.05);
@@ -44,7 +47,7 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
 .timeline {
   list-style: none;
   position: relative;
-  padding-left: 40px;
+  padding-left: 50px; /* 增加縮排避免擋字 */
 }
 .timeline::before {
   content: '';
@@ -52,16 +55,17 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
   top: 0; bottom: 0;
   width: 2px;
   background: #0d6efd;
-  left: 20px;
+  left: 25px; /* 藍線位置 */
 }
 .timeline li {
   position: relative;
   margin-bottom: 25px;
+  padding-left: 10px; /* 確保文字不靠太近 */
 }
 .timeline li::before {
   content: '';
   position: absolute;
-  left: 12px;
+  left: 17px; /* 藍點位置 */
   top: 8px;
   width: 16px;
   height: 16px;
@@ -74,6 +78,16 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
 /* Dark mode */
 .dark-mode .sidebar {
   background: #222;
+  color: #f8f9fa;
+}
+.dark-mode .sidebar .nav-link {
+  color: #f8f9fa;
+}
+.dark-mode .sidebar .nav-link:hover {
+  background: rgba(255,255,255,0.1);
+}
+.dark-mode .btn-outline-dark {
+  border-color: #f8f9fa;
   color: #f8f9fa;
 }
 .dark-mode .main-content {

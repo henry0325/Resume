@@ -1,3 +1,4 @@
+/* Base */
 body {
   font-family: "Muli", sans-serif;
   line-height: 1.6;
@@ -8,6 +9,7 @@ body {
 
 h1, h2, h3, .navbar-brand {
   font-family: "Saira Extra Condensed", sans-serif;
+  letter-spacing: .3px;
 }
 
 .resume-section {
@@ -15,76 +17,68 @@ h1, h2, h3, .navbar-brand {
 }
 
 .resume-section h2 {
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e5e5;
+  padding-bottom: .5rem;
   margin-bottom: 1rem;
 }
 
-/* Dark Mode */
-.dark-mode {
-  background-color: #121212;
-  color: #f8f9fa;
-}
-
-.dark-mode .navbar {
-  background-color: #222 !important;
-}
-
-.dark-mode a {
-  color: #f8f9fa;
+/* Avatar */
+.avatar {
+  width: 148px;
+  height: 148px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* Timeline */
 .timeline {
   list-style: none;
   position: relative;
-  padding: 0;
+  padding: 0 0 0 20px;
 }
-
 .timeline::before {
   content: '';
   position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: #007bff;
-  left: 20px;
-  margin-left: -1px;
+  top: 0; bottom: 0;
+  width: 2px; left: 20px;
+  background: #0d6efd;
 }
-
 .timeline li {
-  margin: 20px 0;
   position: relative;
+  margin: 22px 0 22px 20px;
 }
-
-.timeline-badge {
+.timeline li::before {
+  content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  background: #007bff;
-  color: white;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 40px;
+  left: -12px; top: 4px;
+  width: 12px; height: 12px;
+  background: #0d6efd; border-radius: 50%;
 }
+.timeline .card {
+  background: #f8f9fa; border: 0; border-radius: 10px;
+}
+.dark-mode .timeline .card { background: #2b2b2b; }
 
-.timeline-panel {
-  margin-left: 70px;
-  background: #f8f9fa;
-  padding: 15px;
+/* Skill bars */
+.skill-card .progress {
+  height: 10px;
   border-radius: 8px;
 }
-
-.dark-mode .timeline-panel {
-  background: #333;
+.skill-card .progress-bar {
+  font-size: 12px;
 }
 
-/* Scroll to Top */
-#scrollTop {
+/* Float actions */
+.float-actions {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
+  right: 18px; bottom: 18px;
+  display: flex; flex-direction: column; gap: 10px;
+  z-index: 1040;
 }
+#toTop { display: none; }
+
+/* Dark mode */
+.dark-mode { background-color: #121212; color: #f8f9fa; }
+.dark-mode .navbar { background-color: #222 !important; }
+.dark-mode a { color: #f8f9fa; }
+.dark-mode .resume-section h2 { border-color: #444; }

@@ -44,10 +44,11 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
 .resume-section { margin-bottom: 3rem; }
 
 /* Timeline */
+/* Timeline 主結構 */
 .timeline {
   list-style: none;
   position: relative;
-  padding-left: 50px; /* 增加縮排避免擋字 */
+  padding-left: 50px;
 }
 .timeline::before {
   content: '';
@@ -55,17 +56,17 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
   top: 0; bottom: 0;
   width: 2px;
   background: #0d6efd;
-  left: 25px; /* 藍線位置 */
+  left: 25px;
 }
-.timeline li {
+.timeline > li {
   position: relative;
-  margin-bottom: 25px;
-  padding-left: 10px; /* 確保文字不靠太近 */
+  margin-bottom: 30px;
+  padding-left: 20px; /* 增加縮排 */
 }
-.timeline li::before {
+.timeline > li::before {
   content: '';
   position: absolute;
-  left: 17px; /* 藍點位置 */
+  left: 17px;
   top: 8px;
   width: 16px;
   height: 16px;
@@ -73,6 +74,18 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
   border: 3px solid #fff;
   border-radius: 50%;
   z-index: 1;
+}
+
+/* 內層細節 */
+.timeline > li ul {
+  list-style: disc;
+  padding-left: 25px;
+  margin-top: 10px;
+}
+.timeline > li ul li {
+  margin-bottom: 5px;
+  color: inherit;
+  font-size: 0.95rem;
 }
 
 /* Dark mode */

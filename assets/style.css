@@ -59,7 +59,7 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
 .timeline {
   list-style: none;
   position: relative;
-  padding-left: 100px; /* 重要：內容整體往右，確保空間 */
+  padding-left: 50px; /* 重要：內容整體往右，確保空間 */
   margin: 0;
 }
 .timeline::before {
@@ -79,7 +79,7 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
   /* 大藍點（只套在外層 li） */
   content: '';
   position: absolute;
-  left: 34px; /* 點位於藍線左側 */
+  left: -34px; /* 點位於藍線左側 */
   top: 8px;
   width: 14px;
   height: 14px;
@@ -91,7 +91,7 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
 /* 內層細節保持正常圓點 */
 .timeline > li ul {
   list-style: disc;
-  padding-left: 200px;
+  padding-left: 20px;
   margin-top: 8px;
 }
 .timeline > li ul li {

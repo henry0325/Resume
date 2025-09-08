@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const langBtn = document.getElementById('langToggle');
   const backBtn = document.getElementById('backToTop');
 
-  // 深色模式切換
+  // 深色模式
   if (darkBtn) {
     darkBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let currentLang = 'en';
 
-// 百分比 → 等級（根據百分比）
+// 百分比 → 等級
 function pctToLevel(pct, lang = 'en') {
   if (pct >= 85) return lang === 'en' ? 'Expert' : '專家';
   if (pct >= 70) return lang === 'en' ? 'Advanced' : '進階';
@@ -45,35 +45,72 @@ function pctToLevel(pct, lang = 'en') {
   return lang === 'en' ? 'Beginner' : '初階';
 }
 
-// 履歷資料
+// 履歷資料（根據 PDF）
 const data = {
   en: {
     nav: {
       about: 'About', skills: 'Skills', experience: 'Experience',
       education: 'Education', achievements: 'Achievements',
-      performance: 'Performance', community: 'Community', contact: 'Contact'
+      performance: 'Performance', community: 'Community Service', contact: 'Contact'
     },
     name: "Henry Chang",
-    title: "<strong>Acoustic Engineer</strong>",
-    about: "3.8 years of experience as an acoustic engineer. Love exploring the unknown things and knowledge. Extremely motivated to constantly develop my skills and grow professionally.",
+    title: "Acoustic Engineer",
+    about: "3.8 years of experience as an acoustic engineer. Love exploring the unknown things and knowledge. Extremely motivated to constantly develop my skills and grow professionally. I am confident in my ability to manage all the job that I need to do.",
     skills: [
-      { name: "Acoustic Design", pct: 80, years: 3 },
-      { name: "Audio Measurement (AP / SoundCheck)", pct: 85, years: 3.5 },
-      { name: "Python & Automation", pct: 60, years: 1.5 },
-      { name: "Signal Processing", pct: 50, years: 2 },
-      { name: "Team Collaboration", pct: 90, years: 4 }
+      { name: "Communication & Computer Skills", pct: 90 },
+      { name: "Team & Independent Work", pct: 85 },
+      { name: "Stress Handling & Multitasking", pct: 80 },
+      { name: "Follow Instructions Accurately", pct: 85 },
+      { name: "Adapt & Learn New Things", pct: 90 }
     ],
     experience: [
-      { role: "Acoustic Engineer", company: "Wisrton Corp", time: "2020 - 2023", details: ["Acoustic design", "Audio measurement automation", "Cross-team collaboration"] },
-      { role: "Intern", company: "HTC Corp", time: "2019 - 2020", details: ["Learned and taught CAV 3D scan measurement", "Improved mobile deformation, stress, and strength measurement process."] }
+      {
+        role: "Acoustic Engineer",
+        company: "Wistron (Acoustic R&D)",
+        time: "Nov 2019 - 2023",
+        details: [
+          "Collaboratively work with mechanical team to accomplish acoustic design.",
+          "Highly familiar with audio measurement analyzer (Audio Precision, SoundCheck).",
+          "Improved device performance by proposed changes to other teams.",
+          "Outperformed on audio components design and cost evaluation.",
+          "Analyzed manufacturing issue and identify solution by collaborating with SW, EE and ME.",
+          "Responsible for managing audio contact with GN Audio (Denmark)."
+        ]
+      },
+      {
+        role: "R&D Intern",
+        company: "HTC",
+        time: "Sep 2013 - Sep 2014",
+        details: [
+          "Learned and taught CAV 3D scan measurement.",
+          "Increased awareness of mobile phone life, strength, deformation, function.",
+          "Improved mobile deformation, stress, and strength measurement process.",
+          "Increased workplace ethics.",
+          "Won leader's appreciation."
+        ]
+      }
     ],
     education: [
-      { school: "Ming-Chi University of Technology", degree: "Master of Microelectromechanical Systems", time: "2018 - 2020" },
-      { school: "Ming-Chi University of Technology", degree: "Bachelor of Mechatronics", time: "2014 - 2018" }
+      { school: "Ming Chi University of Technology", degree: "Master in Mechanical Engineering", time: "2018" }
     ],
-    achievements: ["Best Performance Award - Wistron Corp 2022", "Published 2 technical patents on acoustic design"],
-    performance: ["Improved measurement automation by 40%", "Reduced test time by 70%"],
-    community: ["Mentor in Acoustic Engineering Meetup", "Open-source contributor for Python audio tools"],
+    achievements: [
+      "Promotion from level 8 engineer to level 9 senior engineer",
+      "Got the highest score in C++ course",
+      "Presented Micro-Flexible Probe Research at the Nagoya seminar",
+      "Created and integrated a one-click process for Line official accounts",
+      "Built a website for SPI using Wix"
+    ],
+    performance: [
+      "Reduced cycle time in manufacturing test by 70%",
+      "Improved higher frequency SPL by structural audio reflection",
+      "Created SoundCheck automated test sequence",
+      "Organized task items to expedite schedule and prevent resource wastage"
+    ],
+    community: [
+      "Art museum volunteer - Guided people to the exhibition area",
+      "Yuli church volunteer - Lead children and make review video",
+      "Drama volunteer - Arrange and clean the environment"
+    ],
     contact: {
       email: 'henry_0325@yahoo.com.tw',
       phone: '0975-260-521',
@@ -89,25 +126,62 @@ const data = {
     },
     name: "張思緯",
     title: "聲學工程師",
-    about: "擁有 3.8 年聲學工程師經驗，熱衷探索與學習。專長於音訊量測、Python 自動化與跨部門協作。",
+    about: "擁有 3.8 年聲學工程師經驗，熱愛探索未知事物與知識。極度有動力不斷提升技能並專業成長。我相信自己能勝任所有必要的工作。",
     skills: [
-      { name: "聲學設計", pct: 80, years: 3 },
-      { name: "音訊量測 (AP / SoundCheck)", pct: 85, years: 3.5 },
-      { name: "Python 自動化", pct: 60, years: 1.5 },
-      { name: "訊號處理", pct: 50, years: 2 },
-      { name: "團隊協作", pct: 90, years: 4 }
+      { name: "溝通與電腦技能", pct: 90 },
+      { name: "團隊及獨立工作", pct: 85 },
+      { name: "壓力處理與多工", pct: 80 },
+      { name: "精準執行指示", pct: 85 },
+      { name: "快速學習與適應", pct: 90 }
     ],
     experience: [
-      { role: "聲學工程師", company: "XYZ 音訊公司", time: "2020 - 2023", details: ["聲學設計", "音訊量測自動化", "跨部門協作"] },
-      { role: "實習生", company: "ABC 科技", time: "2019 - 2020", details: ["學習並教導CAV 3D掃描測量","改進了手機變形、應力和強度測量流程。"] }
+      {
+        role: "聲學工程師",
+        company: "緯創 (聲學研發)",
+        time: "2019 年 11 月 - 2023 年",
+        details: [
+          "與機構團隊協作完成聲學設計。",
+          "熟悉音訊量測分析儀 (Audio Precision, SoundCheck)。",
+          "提出設計改善建議以提升裝置效能。",
+          "擅長音訊元件設計及成本評估。",
+          "與軟體、電機及機構團隊合作，分析製造問題並提供解決方案。",
+          "負責與 GN Audio (丹麥) 聯繫管理音訊相關事宜。"
+        ]
+      },
+      {
+        role: "研發實習生",
+        company: "宏達電 (HTC)",
+        time: "2013 年 9 月 - 2014 年 9 月",
+        details: [
+          "學習並教導 CAV 3D 掃描量測。",
+          "加深對手機壽命、強度、變形、功能的認識。",
+          "改善手機變形、應力及強度量測流程。",
+          "提升職場倫理。",
+          "獲得主管讚賞。"
+        ]
+      }
     ],
     education: [
-      { school: "明志科技大學", degree: "微機電系統碩士", time: "2018 - 2020" },
-      { school: "明志科技大學", degree: "光機電學士", time: "2014 - 2018" }
+      { school: "明志科技大學", degree: "機械工程碩士", time: "2018" }
     ],
-    achievements: ["XYZ 公司最佳表現獎 2022", "發表兩篇聲學設計相關專利"],
-    performance: ["測試自動化效率提升 40%", "測試時間縮短 70%"],
-    community: ["聲學工程聚會導師", "Python 音訊工具開源貢獻者"],
+    achievements: [
+      "從 8 級工程師晉升至 9 級資深工程師",
+      "C++ 課程獲得最高分",
+      "於名古屋研討會發表微型柔性探針研究",
+      "建立並整合 LINE 官方帳號一鍵流程",
+      "使用 Wix 建立 SPI 網站"
+    ],
+    performance: [
+      "將製造測試循環時間縮短 70%",
+      "透過結構聲音反射改善高頻 SPL",
+      "建立 SoundCheck 自動測試序列",
+      "組織任務項目，加速進度並避免資源浪費"
+    ],
+    community: [
+      "美術館志工 - 引導參觀者至展覽區",
+      "玉里教會志工 - 帶領孩童並製作回顧影片",
+      "戲劇志工 - 安排及整理場地"
+    ],
     contact: {
       email: 'henry_0325@yahoo.com.tw',
       phone: '0975-260-521',
@@ -116,50 +190,41 @@ const data = {
   }
 };
 
-// render：渲染整個頁面
+// render：渲染內容
 function render(lang = 'en') {
   const d = data[lang];
 
-  // 更新 nav
-  document.querySelectorAll('#navLinks .nav-link').forEach(a => {
-    const idx = a.getAttribute('data-nav-index');
-    if (d.nav && d.nav[idx]) a.textContent = d.nav[idx];
+  // 更新選單
+  const navKeys = Object.keys(d.nav);
+  document.querySelectorAll('#navLinks .nav-link').forEach((a, i) => {
+    const key = navKeys[i];
+    a.textContent = d.nav[key];
   });
 
   // Sidebar
   document.getElementById('name').textContent = d.name;
-  document.getElementById('title').innerHTML = d.title;
+  document.getElementById('title').textContent = d.title;
 
   // About
   document.getElementById('aboutText').textContent = d.about;
-
-  // Contact
-  const emailA = document.getElementById('contactEmail');
-  const phone = document.getElementById('contactPhone');
-  const addr = document.getElementById('contactAddr');
-  emailA.href = `mailto:${d.contact.email}`;
-  emailA.textContent = d.contact.email;
-  phone.textContent = d.contact.phone;
-  addr.textContent = d.contact.address;
 
   // Skills
   const skillsList = document.getElementById('skillsList');
   const skillBars = document.getElementById('skillBars');
   skillsList.innerHTML = d.skills.map(s => {
     const level = pctToLevel(s.pct, lang);
-    const label = `${level}${s.years ? ` • ${s.years}${lang === 'en' ? ' yrs' : ' 年'}` : ''}`;
-    return `<span class="skill-chip" title="${label}">${s.name} <small class="skill-meta">${label}</small></span>`;
+    return `<span class="skill-chip">${s.name} <small>${level}</small></span>`;
   }).join('');
   skillBars.innerHTML = d.skills.map(s => {
     const level = pctToLevel(s.pct, lang);
     return `
-      <div class="col-md-6">
-        <div class="mb-1 d-flex justify-content-between">
+      <div class="col-md-6 mb-2">
+        <div class="d-flex justify-content-between">
           <strong>${s.name}</strong>
-          <small class="text-muted">${level}${s.years ? ` • ${s.years}${lang === 'en' ? ' yrs' : ' 年'}` : ''}</small>
+          <small>${level}</small>
         </div>
         <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width:0%" data-value="${s.pct}%"></div>
+          <div class="progress-bar" style="width:0%" data-value="${s.pct}%"></div>
         </div>
       </div>
     `;
@@ -184,16 +249,17 @@ function render(lang = 'en') {
   `).join('');
 
   // Achievements
-  const achieveList = document.getElementById('achieveList');
-  achieveList.innerHTML = d.achievements.map(a => `<li>${a}</li>`).join('');
-
+  document.getElementById('achieveList').innerHTML = d.achievements.map(a => `<li>${a}</li>`).join('');
   // Performance
-  const perfList = document.getElementById('perfList');
-  perfList.innerHTML = d.performance.map(p => `<li>${p}</li>`).join('');
-
+  document.getElementById('perfList').innerHTML = d.performance.map(p => `<li>${p}</li>`).join('');
   // Community
-  const communityList = document.getElementById('communityList');
-  communityList.innerHTML = d.community.map(c => `<li>${c}</li>`).join('');
+  document.getElementById('communityList').innerHTML = d.community.map(c => `<li>${c}</li>`).join('');
+
+  // Contact
+  document.getElementById('contactEmail').href = `mailto:${d.contact.email}`;
+  document.getElementById('contactEmail').textContent = d.contact.email;
+  document.getElementById('contactPhone').textContent = d.contact.phone;
+  document.getElementById('contactAddr').textContent = d.contact.address;
 
   observeReveals();
   observeSkillBars();

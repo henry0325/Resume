@@ -67,7 +67,7 @@ const data = {
       {
         role: "Acoustic Engineer",
         company: "Wistron (Acoustic R&D)",
-        time: "Nov 2019 - 2023",
+        time: "Nov 2019 - Sep 2023",
         details: [
           "Collaboratively work with mechanical team to accomplish acoustic design.",
           "Highly familiar with audio measurement analyzer (Audio Precision, SoundCheck).",
@@ -138,7 +138,7 @@ const data = {
       {
         role: "聲學工程師",
         company: "緯創 (聲學研發)",
-        time: "2019 年 11 月 - 2023 年",
+        time: "2019 年 11 月 - 2023 年 9 月",
         details: [
           "與機構團隊協作完成聲學設計。",
           "熟悉音訊量測分析儀 (Audio Precision, SoundCheck)。",

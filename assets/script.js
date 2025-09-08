@@ -64,7 +64,7 @@ const data = {
       { name: "Team Collaboration", pct: 90, years: 4 }
     ],
     experience: [
-      { role: "Acoustic Engineer", company: "XYZ Audio Corp", time: "2020 - Present", details: ["Acoustic design", "Audio measurement automation", "Cross-team collaboration"] },
+      { role: "Acoustic Engineer", company: "XYZ Audio Corp", time: "2020 - 2023", details: ["Acoustic design", "Audio measurement automation", "Cross-team collaboration"] },
       { role: "Intern", company: "ABC Tech", time: "2019 - 2020", details: ["Basic acoustic measurements", "Report writing"] }
     ],
     education: [
@@ -98,7 +98,7 @@ const data = {
       { name: "團隊協作", pct: 90, years: 4 }
     ],
     experience: [
-      { role: "聲學工程師", company: "XYZ 音訊公司", time: "2020 - 至今", details: ["聲學設計", "音訊量測自動化", "跨部門協作"] },
+      { role: "聲學工程師", company: "XYZ 音訊公司", time: "2020 - 2023", details: ["聲學設計", "音訊量測自動化", "跨部門協作"] },
       { role: "實習生", company: "ABC 科技", time: "2019 - 2020", details: ["基本音訊測試", "撰寫報告"] }
     ],
     education: [

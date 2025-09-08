@@ -222,14 +222,14 @@ function render(lang = 'en') {
     const key = navKeys[i];
     a.textContent = d.nav[key];
   });
-  document.querySelector('#aboutTitle').textContent = d.sections.about;
-  document.querySelector('#skillsTitle').textContent = d.sections.skills;
-  document.querySelector('#expTitle').textContent = d.sections.experience;
-  document.querySelector('#eduTitle').textContent = d.sections.education;
-  document.querySelector('#achieveTitle').textContent = d.sections.achievements;
-  document.querySelector('#perfTitle').textContent = d.sections.performance;
-  document.querySelector('#communityTitle').textContent = d.sections.community;
-  document.querySelector('#contactTitle').textContent = d.sections.contact;
+  document.querySelector('#about').textContent = d.sections.about;
+  document.querySelector('#skills').textContent = d.sections.skills;
+  document.querySelector('#exp').textContent = d.sections.experience;
+  document.querySelector('#edu').textContent = d.sections.education;
+  document.querySelector('#achieve').textContent = d.sections.achievements;
+  document.querySelector('#perf').textContent = d.sections.performance;
+  document.querySelector('#community').textContent = d.sections.community;
+  document.querySelector('#contact').textContent = d.sections.contact;
 
   // Sidebar
   document.getElementById('name').textContent = d.name;

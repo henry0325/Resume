@@ -224,10 +224,10 @@ function render(lang = 'en') {
   });
   document.querySelector('#about').textContent = d.sections.about;
   document.querySelector('#skills').textContent = d.sections.skills;
-  document.querySelector('#exp').textContent = d.sections.experience;
-  document.querySelector('#edu').textContent = d.sections.education;
-  document.querySelector('#achieve').textContent = d.sections.achievements;
-  document.querySelector('#perf').textContent = d.sections.performance;
+  document.querySelector('#experience').textContent = d.sections.experience;
+  document.querySelector('#education').textContent = d.sections.education;
+  document.querySelector('#achievements').textContent = d.sections.achievements;
+  document.querySelector('#performance').textContent = d.sections.performance;
   document.querySelector('#community').textContent = d.sections.community;
   document.querySelector('#contact').textContent = d.sections.contact;
 

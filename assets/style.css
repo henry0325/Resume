@@ -1,8 +1,8 @@
-/* 基本 */
 :root {
   --sidebar-width: 260px;
-  --soft-blue: #d6e9f8; /* 淡藍 */
-  --accent: #0d6efd;    /* 主要藍線 */
+  --soft-blue: #d6e9f8;
+  --accent: #0d6efd;
+  --chip-bg: #eef6ff;
 }
 
 /* 全域 */
@@ -14,8 +14,6 @@ body {
   color: #333333;
 }
 h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
-
-/* 版面 */
 #layout { min-height: 100vh; }
 
 /* Sidebar */
@@ -30,12 +28,7 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
   flex-direction: column;
   align-items: center;
 }
-.sidebar .avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-}
+.sidebar .avatar { width: 120px; height:120px; border-radius:50%; object-fit:cover; }
 .sidebar .nav-link {
   padding: 8px 0;
   color: #333;
@@ -44,22 +37,17 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
   padding-left: 18px;
   font-weight: 600;
 }
-.sidebar .nav-link:hover {
-  background: rgba(0,0,0,0.05);
-}
+.sidebar .nav-link:hover { background: rgba(0,0,0,0.05); }
 
 /* Main content */
-.main-content {
-  margin-left: var(--sidebar-width);
-  padding: 32px;
-}
+.main-content { margin-left: var(--sidebar-width); padding:32px; }
 .resume-section { margin-bottom: 40px; }
 
-/* Timeline - 修正：確保文字從較右方開始，不會被藍點覆蓋 */
+/* Timeline - 你自己調整的藍點位置 */
 .timeline {
   list-style: none;
   position: relative;
-  padding-left: 50px; /* 重要：內容整體往右，確保空間 */
+  padding-left: 50px;
   margin: 0;
 }
 .timeline::before {
@@ -69,17 +57,16 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
   bottom: 0;
   width: 2px;
   background: var(--accent);
-  left: 40px; /* 線位於左側 */
+  left: 40px;
 }
 .timeline > li {
   position: relative;
   margin-bottom: 28px;
 }
 .timeline > li::before {
-  /* 大藍點（只套在外層 li） */
   content: '';
   position: absolute;
-  left: -34px; /* 點位於藍線左側 */
+  left: -34px; /* 你設定的值 */
   top: 8px;
   width: 14px;
   height: 14px;
@@ -88,91 +75,43 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
   border-radius: 50%;
   z-index: 2;
 }
-/* 內層細節保持正常圓點 */
-.timeline > li ul {
-  list-style: disc;
-  padding-left: 20px;
-  margin-top: 8px;
-}
-.timeline > li ul li {
-  margin-bottom: 6px;
-  color: inherit;
-}
+.timeline > li ul { list-style: disc; padding-left:20px; margin-top:8px; }
+.timeline > li ul li { margin-bottom:6px; color: inherit; }
 
-/* timeline 內的面板，做微小卡片背景 */
-.timeline > li .timeline-panel {
-  background: transparent;
-  padding: 6px 0;
-  margin-left: 0; /* 已由 container padding 控制 */
+/* Skills: chip + small progress (視覺輔助) */
+.skill-chip {
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:18px;
+  background:var(--chip-bg);
+  font-weight:600;
+  margin-right:8px;
+  margin-bottom:8px;
 }
+.skill-meta { font-size:0.9rem; color:#666; margin-left:8px; }
 
-/* Reveal 動畫（IntersectionObserver） */
-.reveal {
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 500ms ease, transform 500ms ease;
-}
-.reveal.in-view {
-  opacity: 1;
-  transform: none;
-}
+/* progress 軸 */
+.progress { height:12px; border-radius:8px; background:#eee; }
+.progress-bar { transition: width 800ms ease; background: linear-gradient(90deg,var(--accent), #3aa0ff); }
 
-/* Skills progress */
-.progress {
-  height: 12px;
-  border-radius: 8px;
-}
-.progress-bar {
-  transition: width 800ms ease;
-}
+/* reveal 動畫 */
+.reveal { opacity:0; transform:translateY(8px); transition:opacity .5s ease, transform .5s ease; }
+.reveal.in-view { opacity:1; transform:none; }
 
 /* Dark mode */
-.dark-mode {
-  background: #0b0b0b;
-  color: #f4f4f4;
-}
-.dark-mode .sidebar {
-  background: #222;
-  color: #f8f9fa;
-}
-.dark-mode .sidebar .nav-link {
-  color: #f8f9fa;
-}
-.dark-mode .sidebar .nav-link:hover {
-  background: rgba(255,255,255,0.06);
-}
-.dark-mode .main-content {
-  background: #0b0b0b;
-  color: #f4f4f4;
-}
-.dark-mode .timeline::before {
-  background: #f8f9fa;
-}
-.dark-mode .timeline > li::before {
-  background: #f8f9fa;
-  border-color: #0b0b0b;
-}
+.dark-mode { background:#0b0b0b; color:#f4f4f4; }
+.dark-mode .sidebar { background:#222; color:#f8f9fa; }
+.dark-mode .sidebar .nav-link { color:#f8f9fa; }
+.dark-mode .main-content { background:#0b0b0b; color:#f4f4f4; }
+.dark-mode .skill-chip { background:#2b2b2b; color:#f4f4f4; }
+.dark-mode .progress { background:#222; }
 
-/* Back to top */
-#backToTop {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
-  z-index: 999;
-}
+/* back to top */
+#backToTop { position:fixed; bottom:20px; right:20px; display:none; z-index:999; }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-  }
-  .main-content {
-    margin-left: 0;
-  }
-  .timeline {
-    padding-left: 70px;
-  }
+/* mobile */
+@media (max-width:768px) {
+  .sidebar { position:relative; width:100%; height:auto; }
+  .main-content { margin-left:0; padding:20px; }
+  .timeline { padding-left:70px; }
 }

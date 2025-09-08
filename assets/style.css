@@ -105,6 +105,18 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
 .dark-mode .main-content { background:#0b0b0b; color:#f4f4f4; }
 .dark-mode .skill-chip { background:#2b2b2b; color:#f4f4f4; }
 .dark-mode .progress { background:#222; }
+/* 深夜模式按鈕 */
+.dark-mode #darkToggle,
+.dark-mode #langToggle {
+  background: #333;
+  color: #fff;
+  border: 1px solid #666;
+}
+.dark-mode #darkToggle:hover,
+.dark-mode #langToggle:hover {
+  background: #444;
+}
+
 
 /* back to top */
 #backToTop { position:fixed; bottom:20px; right:20px; display:none; z-index:999; }

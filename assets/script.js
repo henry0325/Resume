@@ -222,14 +222,14 @@ function render(lang = 'en') {
     const key = navKeys[i];
     a.textContent = d.nav[key];
   });
-  document.querySelector('#about').textContent = d.sections.about;
-  document.querySelector('#skills').textContent = d.sections.skills;
-  document.querySelector('#experience').textContent = d.sections.experience;
-  document.querySelector('#education').textContent = d.sections.education;
-  document.querySelector('#achievements').textContent = d.sections.achievements;
-  document.querySelector('#performance').textContent = d.sections.performance;
-  document.querySelector('#community').textContent = d.sections.community;
-  document.querySelector('#contact').textContent = d.sections.contact;
+  document.querySelectorAll('section').forEach(sec => {
+    const key = sec.id;
+    const title = sec.querySelector('h2');
+    if (title && d.sections[key]) {
+      title.textContent = d.sections[key];
+    }
+  });
+
 
   // Sidebar
   document.getElementById('name').textContent = d.name;

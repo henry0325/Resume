@@ -42,19 +42,30 @@ document.addEventListener('DOMContentLoaded', () => {
 // 初始語言
 let currentLang = 'en';
 
+function pctToLevel(pct, lang='en') {
+  // 規則： >=85 Expert, 70-84 Advanced, 50-69 Intermediate, <50 Beginner
+  if (pct >= 85) return lang==='en' ? 'Expert' : '專家';
+  if (pct >= 70) return lang==='en' ? 'Advanced' : '進階';
+  if (pct >= 50) return lang==='en' ? 'Intermediate' : '中階';
+  return lang==='en' ? 'Beginner' : '初階';
+}
 // 你 PDF 的內容（可在這裡調整）
 const data = {
   en: {
-    nav: ["About", "Skills", "Experience", "Education", "Achievements", "Performance", "Community", "Contact"],
+    nav: {
+      about: 'About', skills: 'Skills', experience: 'Experience',
+      education: 'Education', achievements: 'Achievements',
+      performance: 'Performance', community: 'Community', contact: 'Contact'
+    },
     name: "Henry Chang",
     title: "<strong>Acoustic Engineer</strong>",
     about: "3.8 years of experience as an acoustic engineer. Love exploring the unknown things and knowledge. Extremely motivated to constantly develop my skills and grow professionally.",
     skills: [
-      { name: "Acoustic Design", pct: 90 },
-      { name: "Audio Measurement (AP / SoundCheck)", pct: 85 },
-      { name: "Python & Automation", pct: 88 },
-      { name: "Signal Processing", pct: 80 },
-      { name: "Team Collaboration", pct: 95 }
+      { name: "Acoustic Design", pct: 80, years: 3, sample: "" },
+      { name: "Audio Measurement (AP / SoundCheck)", pct: 85, years: 3.5, sample: "" },
+      { name: "Python & Automation", pct: 60, years: 1.5, sample: "" },
+      { name: "Signal Processing", pct: 50, years: 2, sample: "" },
+      { name: "Team Collaboration", pct: 90, years: 4, sample: "" }
     ],
     experience: [
       {
@@ -105,16 +116,20 @@ const data = {
   },
 
   zh: {
-    nav: ["關於我", "技能", "經驗", "學歷", "成就", "聯絡資訊", "績效", "社會服務", "聯絡資訊"],
+    nav: {
+      about: '關於我', skills: '技能', experience: '經歷',
+      education: '學歷', achievements: '成就',
+      performance: '績效', community: '社會服務', contact: '聯絡資訊'
+    },
     name: "張思緯",
     title: "聲學工程師",
     about: "擁有 3.8 年聲學工程師經驗，熱衷於探索與學習。專長於音訊量測、Python 自動化與跨部門協作。",
     skills: [
-      { name: "聲學設計", pct: 90 },
-      { name: "音訊量測 (AP / SoundCheck)", pct: 85 },
-      { name: "Python 自動化", pct: 88 },
-      { name: "訊號處理", pct: 80 },
-      { name: "團隊協作", pct: 95 }
+      { name: "聲學設計", pct: 80, years: 3, sample: "" },
+      { name: "音訊量測 (AP / SoundCheck)", pct: 85, years: 3.5, sample: "" },
+      { name: "Python 自動化", pct: 60, years: 1.5, sample: "" },
+      { name: "訊號處理", pct: 50, years: 2, sample: "" },
+      { name: "團隊協作", pct: 90, years: 4, sample: "" }
     ],
     experience: [
       {
@@ -170,9 +185,9 @@ function render(lang = 'en') {
   const d = data[lang];
 
   // header / sidebar 基本
-  const navLinks = document.querySelectorAll('.sidebar .nav-link');
-  navLinks.forEach((link, i) => {
-    if (d.nav[i]) link.textContent = d.nav[i];
+  document.querySelectorAll('#navLinks .nav-link').forEach(a => {
+    const idx = a.getAttribute('data-nav-index');
+    if (d.nav && d.nav[idx]) a.textContent = d.nav[idx];
   });
   const nameEl = document.getElementById('name');
   const titleEl = document.getElementById('title');
@@ -194,13 +209,32 @@ function render(lang = 'en') {
   // Skills badges + bars
   const skillsList = document.getElementById('skillsList');
   const skillBars = document.getElementById('skillBars');
-  if (skillsList) skillsList.innerHTML = d.skills.map(s => `<span class="badge bg-primary me-1 mb-1">${s.name}</span>`).join('');
-  if (skillBars) skillBars.innerHTML = d.skills.map(s => `
-    <div class="col-md-6">
-      <div class="mb-1"><strong>${s.name}</strong> <span class="float-end">${s.pct}%</span></div>
-      <div class="progress"><div class="progress-bar" role="progressbar" style="width:0%" data-value="${s.pct}%"></div></div>
-    </div>
-  `).join('');
+  if (skillsList) {
+    skillsList.innerHTML = d.skills.map(s => {
+      const level = pctToLevel(s.pct, lang);
+      const label = `${level}${s.years ? ` • ${s.years} ${lang==='en'?'yrs':'年'}` : ''}`;
+      return `<span class="skill-chip" title="${label}">${s.name} <small class="skill-meta">${label}</small></span>`;
+    }).join('');
+  }
+  if (skillBars) {
+    skillBars.innerHTML = d.skills.map(s => {
+      const level = pctToLevel(s.pct, lang);
+      return `
+      <div class="col-md-6">
+        <div class="mb-1 d-flex justify-content-between">
+          <strong>${s.name}</strong>
+          <small class="text-muted">${level}${s.years ? ` • ${s.years}${lang==='en'?' yrs':' 年'}` : ''}</small>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width:0%" data-value="${s.pct}%"></div>
+        </div>
+      </div>
+      `;
+    }).join('');
+  }
+  observeReveals();
+  observeSkillBars();
+}
 
   // Experience timeline（每個 li 包 .timeline-panel）
   const expEl = document.getElementById('expTimeline');
@@ -288,4 +322,39 @@ function observeSkillBars() {
     b.style.width = '0%';
     skillObserver.observe(b);
   });
+}
+
+let revealObserver = null;
+function observeReveals() {
+  if (revealObserver) revealObserver.disconnect();
+  const reveals = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || reveals.length === 0) {
+    reveals.forEach(r => r.classList.add('in-view'));
+    return;
+  }
+  revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.15 });
+  reveals.forEach(r => { r.classList.remove('in-view'); revealObserver.observe(r); });
+}
+
+let skillObserver = null;
+function observeSkillBars() {
+  if (skillObserver) skillObserver.disconnect();
+  const bars = document.querySelectorAll('.progress-bar');
+  if (!('IntersectionObserver' in window) || bars.length === 0) {
+    bars.forEach(b => b.style.width = b.getAttribute('data-value') || '80%');
+    return;
+  }
+  skillObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target;
+        const val = bar.getAttribute('data-value') || '80%';
+        bar.style.width = val;
+        obs.unobserve(bar);
+      }
+    });
+  }, { threshold: 0.2 });
+  bars.forEach(b => { b.style.width = '0%'; skillObserver.observe(b); });
 }

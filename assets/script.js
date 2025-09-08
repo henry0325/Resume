@@ -57,7 +57,7 @@ const data = {
       performance: 'Performance',
       community: 'Community Service',
       contact: 'Contact'
-    }
+    },
 
     nav: {
       about: 'About', skills: 'Skills', experience: 'Experience',
@@ -139,7 +139,7 @@ const data = {
       performance: '績效',
       community: '社會服務',
       contact: '聯絡資訊'
-    }
+    },
 
     nav: {
       about: '關於我', skills: '技能', experience: '經歷',

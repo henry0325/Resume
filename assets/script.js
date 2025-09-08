@@ -68,8 +68,8 @@ const data = {
       { role: "Intern", company: "ABC Tech", time: "2019 - 2020", details: ["Basic acoustic measurements", "Report writing"] }
     ],
     education: [
-      { school: "National Taiwan University", degree: "Master of Microelectromechanical Systems", time: "2018 - 2020" },
-      { school: "National Taiwan University", degree: "Bachelor of Mechatronics", time: "2014 - 2018" }
+      { school: "Ming-Chi University of Technology", degree: "Master of Microelectromechanical Systems", time: "2018 - 2020" },
+      { school: "Ming-Chi University of Technology", degree: "Bachelor of Mechatronics", time: "2014 - 2018" }
     ],
     achievements: ["Best Performance Award - XYZ Corp 2022", "Published 2 technical papers on acoustic design"],
     performance: ["Improved measurement automation by 40%", "Reduced test time by 30%"],
@@ -102,8 +102,8 @@ const data = {
       { role: "實習生", company: "ABC 科技", time: "2019 - 2020", details: ["基本音訊測試", "撰寫報告"] }
     ],
     education: [
-      { school: "台灣大學", degree: "微機電系統碩士", time: "2018 - 2020" },
-      { school: "台灣大學", degree: "光機電學士", time: "2014 - 2018" }
+      { school: "明志科技大學", degree: "微機電系統碩士", time: "2018 - 2020" },
+      { school: "明志科技大學", degree: "光機電學士", time: "2014 - 2018" }
     ],
     achievements: ["XYZ 公司最佳表現獎 2022", "發表兩篇聲學設計相關論文"],
     performance: ["測試自動化效率提升 40%", "測試時間縮短 30%"],

@@ -64,15 +64,15 @@ const data = {
       { name: "Team Collaboration", pct: 90, years: 4 }
     ],
     experience: [
-      { role: "Acoustic Engineer", company: "XYZ Audio Corp", time: "2020 - 2023", details: ["Acoustic design", "Audio measurement automation", "Cross-team collaboration"] },
-      { role: "Intern", company: "ABC Tech", time: "2019 - 2020", details: ["Basic acoustic measurements", "Report writing"] }
+      { role: "Acoustic Engineer", company: "Wisrton Corp", time: "2020 - 2023", details: ["Acoustic design", "Audio measurement automation", "Cross-team collaboration"] },
+      { role: "Intern", company: "HTC Corp", time: "2019 - 2020", details: ["Learned and taught CAV 3D scan measurement", "Improved mobile deformation, stress, and strength measurement process."] }
     ],
     education: [
       { school: "Ming-Chi University of Technology", degree: "Master of Microelectromechanical Systems", time: "2018 - 2020" },
       { school: "Ming-Chi University of Technology", degree: "Bachelor of Mechatronics", time: "2014 - 2018" }
     ],
-    achievements: ["Best Performance Award - XYZ Corp 2022", "Published 2 technical papers on acoustic design"],
-    performance: ["Improved measurement automation by 40%", "Reduced test time by 30%"],
+    achievements: ["Best Performance Award - Wistron Corp 2022", "Published 2 technical patents on acoustic design"],
+    performance: ["Improved measurement automation by 40%", "Reduced test time by 70%"],
     community: ["Mentor in Acoustic Engineering Meetup", "Open-source contributor for Python audio tools"],
     contact: {
       email: 'henry_0325@yahoo.com.tw',
@@ -99,14 +99,14 @@ const data = {
     ],
     experience: [
       { role: "聲學工程師", company: "XYZ 音訊公司", time: "2020 - 2023", details: ["聲學設計", "音訊量測自動化", "跨部門協作"] },
-      { role: "實習生", company: "ABC 科技", time: "2019 - 2020", details: ["基本音訊測試", "撰寫報告"] }
+      { role: "實習生", company: "ABC 科技", time: "2019 - 2020", details: ["學習並教導CAV 3D掃描測量","改進了手機變形、應力和強度測量流程。"] }
     ],
     education: [
       { school: "明志科技大學", degree: "微機電系統碩士", time: "2018 - 2020" },
       { school: "明志科技大學", degree: "光機電學士", time: "2014 - 2018" }
     ],
-    achievements: ["XYZ 公司最佳表現獎 2022", "發表兩篇聲學設計相關論文"],
-    performance: ["測試自動化效率提升 40%", "測試時間縮短 30%"],
+    achievements: ["XYZ 公司最佳表現獎 2022", "發表兩篇聲學設計相關專利"],
+    performance: ["測試自動化效率提升 40%", "測試時間縮短 70%"],
     community: ["聲學工程聚會導師", "Python 音訊工具開源貢獻者"],
     contact: {
       email: 'henry_0325@yahoo.com.tw',

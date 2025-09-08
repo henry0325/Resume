@@ -48,6 +48,17 @@ function pctToLevel(pct, lang = 'en') {
 // 履歷資料（根據 PDF）
 const data = {
   en: {
+    sections: {
+      about: 'About Me',
+      skills: 'Skills',
+      experience: 'Experience',
+      education: 'Education',
+      achievements: 'Achievements',
+      performance: 'Performance',
+      community: 'Community Service',
+      contact: 'Contact'
+    }
+
     nav: {
       about: 'About', skills: 'Skills', experience: 'Experience',
       education: 'Education', achievements: 'Achievements',
@@ -119,6 +130,17 @@ const data = {
   },
 
   zh: {
+    sections: {
+      about: '關於我',
+      skills: '技能',
+      experience: '經歷',
+      education: '學歷',
+      achievements: '成就',
+      performance: '績效',
+      community: '社會服務',
+      contact: '聯絡資訊'
+    }
+
     nav: {
       about: '關於我', skills: '技能', experience: '經歷',
       education: '學歷', achievements: '成就',
@@ -200,6 +222,14 @@ function render(lang = 'en') {
     const key = navKeys[i];
     a.textContent = d.nav[key];
   });
+  document.querySelector('#aboutTitle').textContent = d.sections.about;
+  document.querySelector('#skillsTitle').textContent = d.sections.skills;
+  document.querySelector('#expTitle').textContent = d.sections.experience;
+  document.querySelector('#eduTitle').textContent = d.sections.education;
+  document.querySelector('#achieveTitle').textContent = d.sections.achievements;
+  document.querySelector('#perfTitle').textContent = d.sections.performance;
+  document.querySelector('#communityTitle').textContent = d.sections.community;
+  document.querySelector('#contactTitle').textContent = d.sections.contact;
 
   // Sidebar
   document.getElementById('name').textContent = d.name;

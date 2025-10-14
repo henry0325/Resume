@@ -2,33 +2,31 @@
   --sidebar-width: 260px;
   --soft-blue: #d6e9f8;
   --accent: #0d6efd;
-  --chip-bg: #eef6ff;
 }
-
-/* 全域 */
 body {
   margin: 0;
   font-family: "Muli", sans-serif;
-  transition: background 0.25s ease, color 0.25s ease;
-  background: #ffffff;
-  color: #333333;
+  background: #fff;
+  color: #333;
+  transition: background 0.3s ease, color 0.3s ease;
 }
-h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
-#layout { min-height: 100vh; }
-
-/* Sidebar */
 .sidebar {
   width: var(--sidebar-width);
   height: 100vh;
   background: var(--soft-blue);
   color: #333;
   position: fixed;
-  top: 0; left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 16px;
 }
-.sidebar .avatar { width: 120px; height:120px; border-radius:50%; object-fit:cover; }
+.sidebar .avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 .sidebar .nav-link {
   padding: 8px 0;
   color: #333;
@@ -37,93 +35,40 @@ h1,h2,h3 { font-family: "Saira Extra Condensed", sans-serif; }
   padding-left: 18px;
   font-weight: 600;
 }
-.sidebar .nav-link:hover { background: rgba(0,0,0,0.05); }
-
-/* Main content */
-.main-content { margin-left: var(--sidebar-width); padding:32px; }
-.resume-section { margin-bottom: 40px; }
-
-/* Timeline - 你自己調整的藍點位置 */
-.timeline {
-  list-style: none;
-  position: relative;
-  padding-left: 50px;
-  margin: 0;
+.sidebar .nav-link:hover {
+  background: rgba(0,0,0,0.05);
 }
-.timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 2px;
+.controls { margin-top: auto; display: flex; gap: 10px; }
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 32px;
+}
+.download-btn {
+  display: inline-block;
   background: var(--accent);
-  left: 40px;
-}
-.timeline > li {
-  position: relative;
-  margin-bottom: 28px;
-}
-.timeline > li::before {
-  content: '';
-  position: absolute;
-  left: -34px; /* 你設定的值 */
-  top: 8px;
-  width: 14px;
-  height: 14px;
-  background: var(--accent);
-  border: 3px solid #fff;
-  border-radius: 50%;
-  z-index: 2;
-}
-.timeline > li ul { list-style: disc; padding-left:20px; margin-top:8px; }
-.timeline > li ul li { margin-bottom:6px; color: inherit; }
-
-/* Skills: chip + small progress (視覺輔助) */
-.skill-chip {
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:18px;
-  background:var(--chip-bg);
-  font-weight:600;
-  margin-right:8px;
-  margin-bottom:8px;
-}
-.skill-meta { font-size:0.9rem; color:#666; margin-left:8px; }
-
-/* progress 軸 */
-.progress { height:12px; border-radius:8px; background:#eee; }
-.progress-bar { transition: width 800ms ease; background: linear-gradient(90deg,var(--accent), #3aa0ff); }
-
-/* reveal 動畫 */
-.reveal { opacity:0; transform:translateY(8px); transition:opacity .5s ease, transform .5s ease; }
-.reveal.in-view { opacity:1; transform:none; }
-
-/* Dark mode */
-.dark-mode { background:#0b0b0b; color:#f4f4f4; }
-.dark-mode .sidebar { background:#222; color:#f8f9fa; }
-.dark-mode .sidebar .nav-link { color:#f8f9fa; }
-.dark-mode .main-content { background:#0b0b0b; color:#f4f4f4; }
-.dark-mode .skill-chip { background:#2b2b2b; color:#f4f4f4; }
-.dark-mode .progress { background:#222; }
-/* 深夜模式按鈕 */
-.dark-mode #darkToggle,
-.dark-mode #langToggle {
-  background: #333;
   color: #fff;
-  border: 1px solid #666;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
 }
-.dark-mode #darkToggle:hover,
-.dark-mode #langToggle:hover {
-  background: #444;
+.download-btn:hover { background: #0b5ed7; }
+.dark-mode {
+  background: #0b0b0b;
+  color: #f4f4f4;
 }
-
-
-/* back to top */
-#backToTop { position:fixed; bottom:20px; right:20px; display:none; z-index:999; }
-
-/* mobile */
-@media (max-width:768px) {
-  .sidebar { position:relative; width:100%; height:auto; }
-  .main-content { margin-left:0; padding:20px; }
-  .timeline { padding-left:50px; }
+.dark-mode .sidebar { background: #222; color: #fff; }
+.dark-mode .sidebar .nav-link:hover { background: rgba(255,255,255,0.1); }
+.dark-mode .download-btn { background: #3498db; }
+.dark-mode .download-btn:hover { background: #2980b9; }
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  cursor: pointer;
 }

@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Henry Chang | Resume</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Henry Chang · Resume</title>
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
   <div id="layout">
+    <!-- Sidebar -->
     <aside class="sidebar">
-      <img src="assets/profile.jpg" alt="Profile" class="avatar" />
-      <h2>Henry Chang</h2>
-      <p class="tagline">Solve, Connect, Deliver.</p>
-      <nav>
+      <img src="assets/profile.jpg" alt="Profile" class="avatar" id="avatarImg"/>
+      <h2 id="name">Henry Chang</h2>
+      <p class="title" id="title">Acoustic Engineer</p>
+      <p class="tagline" id="tagline">Solve, Connect, Deliver.</p>
+
+      <nav id="navLinks" class="nav">
         <a href="#about" class="nav-link" data-nav-index="about">About</a>
         <a href="#skills" class="nav-link" data-nav-index="skills">Skills</a>
         <a href="#experience" class="nav-link" data-nav-index="experience">Experience</a>
@@ -22,28 +25,32 @@
         <a href="#community" class="nav-link" data-nav-index="community">Community</a>
         <a href="#contact" class="nav-link" data-nav-index="contact">Contact</a>
       </nav>
+
       <div class="controls">
-        <button id="toggleDark">🌙</button>
-        <button id="toggleLang">中/En</button>
+        <button id="darkToggle" aria-label="Toggle dark">🌙</button>
+        <button id="langToggle" aria-label="Toggle language">中文</button>
       </div>
     </aside>
 
+    <!-- Main content -->
     <main class="main-content">
-      <section id="about"><h2 id="aboutTitle">About</h2><div id="aboutContent"></div></section>
-      <section id="skills"><h2 id="skillsTitle">Skills</h2><div id="skillsContent"></div></section>
-      <section id="experience"><h2 id="expTitle">Experience</h2><div id="expContent"></div></section>
-      <section id="education"><h2 id="eduTitle">Education</h2><div id="eduContent"></div></section>
-      <section id="achievements"><h2 id="achieveTitle">Achievements</h2><div id="achieveContent"></div></section>
-      <section id="performance"><h2 id="perfTitle">Performance</h2><div id="perfContent"></div></section>
-      <section id="community"><h2 id="communityTitle">Community</h2><div id="communityContent"></div></section>
-      <section id="contact"><h2 id="contactTitle">Contact</h2><div id="contactContent"></div></section>
+      <section id="about" class="resume-section reveal"><h2>About</h2><div id="aboutText"></div></section>
+      <section id="skills" class="resume-section reveal"><h2>Skills</h2><div id="skillsList"></div><div id="skillBars" class="row g-3"></div></section>
+      <section id="experience" class="resume-section reveal"><h2>Experience</h2><ul class="timeline" id="expTimeline"></ul></section>
+      <section id="education" class="resume-section reveal"><h2>Education</h2><div id="eduList"></div></section>
+      <section id="achievements" class="resume-section reveal"><h2>Achievements</h2><ul id="achieveList"></ul></section>
+      <section id="performance" class="resume-section reveal"><h2>Performance</h2><ul id="perfList"></ul></section>
+      <section id="community" class="resume-section reveal"><h2>Community</h2><ul id="communityList"></ul></section>
+      <section id="contact" class="resume-section reveal"><h2>Contact</h2><div id="contactInfo"></div></section>
 
       <div class="download">
-        <a href="assets/Henry-Chang.pdf" download class="download-btn">⬇ Download PDF Resume</a>
+        <a href="assets/Henry-Chang.pdf" class="download-btn" download>⬇ Download PDF Resume</a>
       </div>
     </main>
   </div>
-  <button id="backToTop">↑</button>
+
+  <button id="backToTop" title="Back to top">↑</button>
+
   <script src="assets/script.js"></script>
 </body>
 </html>

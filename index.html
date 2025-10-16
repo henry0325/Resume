@@ -8,8 +8,10 @@
 </head>
 <body>
     <div class="controls">
-        <button class="btn-control" id="langBtn" onclick="toggleLanguage()">中文/EN</button>
-        <button class="btn-control" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+        <button class="btn-control" id="langBtn" onclick="toggleLanguage()">中文</button>
+        <button class="btn-control theme-toggle" id="themeBtn" onclick="toggleTheme()">
+            <span class="theme-icon">🌙</span>
+        </button>
         <button class="btn-control" onclick="downloadPDF()">📄 PDF</button>
     </div>
     
@@ -50,23 +52,27 @@
                     <strong>Automation & Scripting (Python, Vibe Coding)</strong>
                     <p class="lang-en">Built efficient workflows that reduced repetitive analysis time by 40%.</p>
                     <p class="lang-zh hidden">建立高效率流程，降低40%重複分析時間。</p>
-                    <p class="skill-expand-hint lang-en">👆 Tap to see details</p>
-                    <p class="skill-expand-hint lang-zh hidden">👆 點擊查看詳情</p>
+                    <p class="skill-expand-hint">
+                        <span class="lang-en">👆 Tap to see details</span>
+                        <span class="lang-zh hidden">👆 點擊查看詳情</span>
+                    </p>
                     
                     <div class="skill-tooltip lang-en">
                         <h4>Technical Details</h4>
                         <ul>
-                            <li>Python & HTML & Vibe Coding</li>
+                            <li>Python: Pandas, NumPy, Matplotlib</li>
                             <li>Automated data analysis pipelines</li>
                             <li>Custom testing frameworks</li>
+                            <li>Version control with Git</li>
                         </ul>
                     </div>
                     <div class="skill-tooltip lang-zh hidden">
                         <h4>技術細節</h4>
                         <ul>
-                            <li>Python & HTML & Vibe Coding</li>
+                            <li>Python：Pandas、NumPy、Matplotlib</li>
                             <li>自動化資料分析流程</li>
                             <li>客製化測試框架</li>
+                            <li>使用 Git 版本控制</li>
                         </ul>
                     </div>
                 </div>
@@ -75,8 +81,10 @@
                     <strong>Acoustic Analysis & Signal Processing</strong>
                     <p class="lang-en">Experienced in sound quality metrics, data visualization, and root-cause investigation.</p>
                     <p class="lang-zh hidden">熟悉音質評估、資料視覺化與問題根因分析。</p>
-                    <p class="skill-expand-hint lang-en">👆 Tap to see details</p>
-                    <p class="skill-expand-hint lang-zh hidden">👆 點擊查看詳情</p>
+                    <p class="skill-expand-hint">
+                        <span class="lang-en">👆 Tap to see details</span>
+                        <span class="lang-zh hidden">👆 點擊查看詳情</span>
+                    </p>
                     
                     <div class="skill-tooltip lang-en">
                         <h4>Core Competencies</h4>
@@ -84,7 +92,7 @@
                             <li>FFT & frequency domain analysis</li>
                             <li>THD, SNR, frequency response measurement</li>
                             <li>MATLAB signal processing</li>
-                            <li>Audio testing equipment operation : SoundCheck, AP</li>
+                            <li>Audio testing equipment operation</li>
                         </ul>
                     </div>
                     <div class="skill-tooltip lang-zh hidden">
@@ -93,7 +101,7 @@
                             <li>FFT 與頻域分析</li>
                             <li>THD、SNR、頻率響應測量</li>
                             <li>MATLAB 訊號處理</li>
-                            <li>音訊測試設備操作 : SoundCheck, AP</li>
+                            <li>音訊測試設備操作</li>
                         </ul>
                     </div>
                 </div>
@@ -102,13 +110,15 @@
                     <strong>Mechanical & System Design</strong>
                     <p class="lang-en">Integrated acoustic-mechanical design in cross-functional projects to enhance overall performance.</p>
                     <p class="lang-zh hidden">跨領域整合聲學與機構設計，提升整體性能。</p>
-                    <p class="skill-expand-hint lang-en">👆 Tap to see details</p>
-                    <p class="skill-expand-hint lang-zh hidden">👆 點擊查看詳情</p>
+                    <p class="skill-expand-hint">
+                        <span class="lang-en">👆 Tap to see details</span>
+                        <span class="lang-zh hidden">👆 點擊查看詳情</span>
+                    </p>
                     
                     <div class="skill-tooltip lang-en">
                         <h4>Design Expertise</h4>
                         <ul>
-                            <li>CAD modeling (SolidWorks, AutoCAD, ProE, Inventor)</li>
+                            <li>CAD modeling (SolidWorks, AutoCAD)</li>
                             <li>Acoustic chamber design</li>
                             <li>Vibration analysis</li>
                             <li>Material selection for sound optimization</li>
@@ -117,7 +127,7 @@
                     <div class="skill-tooltip lang-zh hidden">
                         <h4>設計專長</h4>
                         <ul>
-                            <li>CAD 建模（SolidWorks、AutoCAD, ProE, Inventor）</li>
+                            <li>CAD 建模（SolidWorks、AutoCAD）</li>
                             <li>聲學測試腔體設計</li>
                             <li>振動分析</li>
                             <li>音質優化材料選擇</li>
@@ -176,13 +186,13 @@
                 
                 <div class="item">
                     <ul class="lang-en">
-                        <li>Led product acoustic performance validation for 3 major meeting system.</li>
+                        <li>Led product acoustic performance validation for 3 major headset models.</li>
                         <li>Developed testing scripts reused across multiple internal teams.</li>
                         <li>Recognized by team management for excellence in innovation and efficiency.</li>
                     </ul>
                     
                     <ul class="lang-zh hidden">
-                        <li>主導 3 款主要會議系統產品的聲學性能驗證。</li>
+                        <li>主導 3 款主要耳機產品的聲學性能驗證。</li>
                         <li>開發測試腳本，被多個內部團隊重複使用。</li>
                         <li>獲團隊管理層表揚創新與效率方面的卓越表現。</li>
                     </ul>
@@ -191,8 +201,8 @@
         </div>
         
         <footer>
-            <p class="lang-en">© 2025 Henry Chang. All rights reserved.</p>
-            <p class="lang-zh hidden">© 2025 張思緯 版權所有</p>
+            <p class="lang-en">© 2024 Henry Chang. All rights reserved.</p>
+            <p class="lang-zh hidden">© 2024 張亨利 版權所有</p>
         </footer>
     </div>
     

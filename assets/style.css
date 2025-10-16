@@ -299,6 +299,7 @@ li:before {
 .skill-tooltip li {
     padding: 3px 0;
     font-size: 0.9em;
+    color: white;
 }
 
 .skill-tooltip li:before {

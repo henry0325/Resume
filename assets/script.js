@@ -22,6 +22,10 @@ function toggleLanguage() {
             el.textContent = currentLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-zh');
         }
     });
+    
+    // 更新語言切換按鈕文字
+    const langBtn = document.getElementById('langBtn');
+    langBtn.textContent = currentLang === 'en' ? '中文' : 'English';
 }
 
 // ===== 深色模式切換功能 =====
@@ -30,7 +34,15 @@ function toggleTheme() {
     document.documentElement.setAttribute('data-theme', currentTheme);
     
     const btn = document.getElementById('themeBtn');
-    btn.textContent = currentTheme === 'light' ? '🌙 Dark' : '☀️ Light';
+    const icon = btn.querySelector('.theme-icon');
+    
+    if (currentTheme === 'dark') {
+        btn.classList.add('dark');
+        icon.textContent = '☀️';
+    } else {
+        btn.classList.remove('dark');
+        icon.textContent = '🌙';
+    }
     
     // 儲存使用者偏好到 localStorage
     localStorage.setItem('theme', currentTheme);
@@ -94,11 +106,16 @@ function initSmoothScroll() {
 
 // ===== 載入時初始化 =====
 document.addEventListener('DOMContentLoaded', function() {
+    // 初始化語言按鈕文字
+    const langBtn = document.getElementById('langBtn');
+    langBtn.textContent = '中文';
+    
     // 檢查系統主題偏好
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
-        currentTheme = savedTheme === 'dark' ? 'light' : 'dark';
-        toggleTheme();
+        if (savedTheme === 'dark' && currentTheme === 'light') {
+            toggleTheme();
+        }
     } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         toggleTheme();
     }

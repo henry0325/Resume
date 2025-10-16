@@ -100,7 +100,7 @@ body {
 }
 
 .theme-toggle.dark::before {
-    transform: translateX(28px);
+    transform: translateX(40px);
 }
 
 .theme-icon {
@@ -108,10 +108,12 @@ body {
     z-index: 1;
     font-size: 16px;
     transition: transform 0.3s ease;
+    left: 1px;
+    bottom: 1px;
 }
 
 .theme-toggle.dark .theme-icon {
-    transform: translateX(28px);
+    transform: translateX(40px);
 }
 
 /* ===== 主容器 ===== */
@@ -453,7 +455,7 @@ footer {
 }
 
 .theme-toggle.dark::before {
-    transform: translateX(40px);
+    transform: translateX(39px);
 }
 
 .theme-icon {
@@ -461,7 +463,7 @@ footer {
 }
 
 .theme-toggle.dark .theme-icon {
-    transform: translateX(40px);
+    transform: translateX(39px);
 }
 
 }

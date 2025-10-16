@@ -443,6 +443,27 @@ footer {
         visibility: visible;
         transform: none;
     }
+    .theme-toggle {
+    width: 77.81px;
+    height: 37px;
+}
+.theme-toggle::before {
+    width: 18px;
+    height: 18px;
+}
+
+.theme-toggle.dark::before {
+    transform: translateX(46px);
+}
+
+.theme-icon {
+    left: 4px;
+}
+
+.theme-toggle.dark .theme-icon {
+    transform: translateX(46px);
+}
+
 }
 
 /* ===== 列印樣式 ===== */

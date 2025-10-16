@@ -293,6 +293,7 @@ li:before {
     list-style: disc;
     padding-left: 20px;
     margin-top: 8px;
+    color: white;
 }
 
 .skill-tooltip li {

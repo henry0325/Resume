@@ -100,7 +100,7 @@ body {
 }
 
 .theme-toggle.dark::before {
-    transform: translateX(40px);
+    transform: translateX(36px);
 }
 
 .theme-icon {
@@ -113,7 +113,7 @@ body {
 }
 
 .theme-toggle.dark .theme-icon {
-    transform: translateX(40px);
+    transform: translateX(36px);
 }
 
 /* ===== 主容器 ===== */

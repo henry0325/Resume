@@ -453,7 +453,7 @@ footer {
 }
 
 .theme-toggle.dark::before {
-    transform: translateX(46px);
+    transform: translateX(26px);
 }
 
 .theme-icon {
@@ -461,7 +461,7 @@ footer {
 }
 
 .theme-toggle.dark .theme-icon {
-    transform: translateX(46px);
+    transform: translateX(26px);
 }
 
 }

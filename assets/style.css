@@ -58,7 +58,7 @@ body {
     padding: 10px 20px;
     border-radius: 25px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     transition: all 0.3s;
     box-shadow: var(--card-shadow);
@@ -68,6 +68,50 @@ body {
     background: var(--accent-primary);
     color: white;
     transform: translateY(-2px);
+}
+
+/* 主題切換按鈕特殊樣式 */
+.theme-toggle {
+    position: relative;
+    width: 60px;
+    height: 32px;
+    padding: 4px;
+    background: var(--accent-primary);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    background: var(--accent-secondary);
+}
+
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    left: 4px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.theme-toggle.dark::before {
+    transform: translateX(28px);
+}
+
+.theme-icon {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle.dark .theme-icon {
+    transform: translateX(28px);
 }
 
 /* ===== 主容器 ===== */
@@ -288,6 +332,11 @@ li:before {
     font-size: 1.1em;
     border-bottom: 1px solid rgba(255,255,255,0.3);
     padding-bottom: 5px;
+    color: white;
+}
+
+.skill-tooltip p {
+    color: white;
 }
 
 .skill-tooltip ul {

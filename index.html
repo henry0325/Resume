@@ -1,93 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Henry Chang · Resume</title>
-
-  <!-- CSS / Fonts / Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@400;700&family=Muli:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Henry Chang - Acoustic Engineer</title>
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-  <div class="d-flex flex-column flex-md-row" id="layout">
-    <!-- Sidebar -->
-    <aside class="sidebar d-flex flex-column align-items-center text-center p-3">
-      <img src="assets/profile.jpg" alt="Profile" class="avatar mb-3">
-      <h2 id="name" class="mb-1">Henry Chang</h2>
-      <p id="title" class="small mb-3"><strong>Acoustic Engineer</strong></p>
-
-      <nav class="nav flex-column w-100 mb-4" id="navLinks">
-        <a href="#about" class="nav-link" data-nav-index="about">About</a>
-        <a href="#skills" class="nav-link" data-nav-index="skills">Skills</a>
-        <a href="#experience" class="nav-link" data-nav-index="experience">Experience</a>
-        <a href="#education" class="nav-link" data-nav-index="education">Education</a>
-        <a href="#achievements" class="nav-link" data-nav-index="achievements">Achievements</a>
-        <a href="#performance" class="nav-link" data-nav-index="performance">Performance</a>
-        <a href="#community" class="nav-link" data-nav-index="community">Community</a>
-        <a href="#contact" class="nav-link" data-nav-index="contact">Contact</a>
-      </nav>
-
-      <div class="d-flex gap-2">
-        <button id="langToggle" class="btn btn-outline-dark btn-sm">中文</button>
-        <button id="darkToggle" class="btn btn-outline-dark btn-sm">🌙</button>
-      </div>
-    </aside>
-
-    <!-- Main -->
-    <main class="main-content flex-grow-1 p-4">
-      <section id="about" class="resume-section reveal">
-        <h2 data-i18n="sections.about">About</h2>
-        <p id="aboutText">Loading...</p>
-        <a id="pdfBtn" href="assets/Henry-Chang.pdf" class="btn btn-outline-primary" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
-      </section>
-
-      <section id="skills" class="resume-section reveal">
-        <h2 data-i18n="sections.skills">Skills</h2>
-        <div id="skillsList" class="mb-3"></div>
-        <div id="skillBars" class="row g-3"></div>
-      </section>
-
-      <section id="experience" class="resume-section reveal">
-        <h2 data-i18n="sections.experience">Experience</h2>
-        <ul class="timeline" id="expTimeline"></ul>
-      </section>
-
-      <section id="education" class="resume-section reveal">
-        <h2 data-i18n="sections.education">Education</h2>
-        <div id="eduList"></div>
-      </section>
-
-      <section id="achievements" class="resume-section reveal">
-        <h2 data-i18n="sections.achievements">Achievements</h2>
-        <ul id="achieveList"></ul>
-      </section>
-
-      <section id="performance" class="resume-section reveal">
-        <h2 data-i18n="sections.performance">Performance Improvement</h2>
-        <ul id="perfList"></ul>
-      </section>
-
-      <section id="community" class="resume-section reveal">
-        <h2 data-i18n="sections.community">Community Work</h2>
-        <ul id="communityList"></ul>
-      </section>
-
-      <section id="contact" class="resume-section text-center reveal">
-        <h2 data-i18n="sections.contact">Contact</h2>
-        <p><i class="fa-solid fa-envelope"></i> <a id="contactEmail" href="mailto:henry_0325@yahoo.com.tw">henry_0325@yahoo.com.tw</a></p>
-        <p><i class="fa-solid fa-phone"></i> <span id="contactPhone">0975-260-521</span></p>
-        <p class="small text-muted" id="contactAddr"></p>
-      </section>
-    </main>
-  </div>
-
-  <button id="backToTop" class="btn btn-primary" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/script.js"></script>
+    <div class="controls">
+        <button class="btn-control" id="langBtn" onclick="toggleLanguage()">中文/EN</button>
+        <button class="btn-control" id="themeBtn" onclick="toggleTheme()">🌙 Dark</button>
+        <button class="btn-control" onclick="downloadPDF()">📄 PDF</button>
+    </div>
+    
+    <div class="container">
+        <header>
+            <img src="./assets/profile.jpg" alt="Henry Chang" class="profile-photo" id="profilePhoto">
+            <h1>Henry Chang</h1>
+            <p class="subtitle" data-en="Acoustic Engineer | Problem Solver | Innovation Driver" 
+               data-zh="聲學工程師 | 問題解決者 | 創新推動者">
+                Acoustic Engineer | Problem Solver | Innovation Driver
+            </p>
+            <div class="contact-info">
+                <a href="mailto:henry_0325@yahoo.com.tw">📧 henry_0325@yahoo.com.tw</a>
+                <a href="tel:+886975260521">📱 0975-260-521</a>
+                <a href="https://www.linkedin.com/in/henry-chang-0b7292177/" target="_blank">🔗 LinkedIn</a>
+            </div>
+        </header>
+        
+        <div class="content">
+            <!-- About Section -->
+            <section id="about">
+                <h2 data-en="About Me" data-zh="關於我">About Me</h2>
+                <div class="item">
+                    <p class="lang-en">
+                        Driven by curiosity and the pursuit of excellence, I specialize in optimizing workflows, bridging cross-functional collaboration, and turning challenges into opportunities for innovation.
+                    </p>
+                    <p class="lang-zh hidden">
+                        我以好奇心與卓越追求為核心，擅長優化流程、跨部門協作，並將挑戰轉化為創新的契機。
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Skills Section -->
+            <section id="skills">
+                <h2 data-en="Skills" data-zh="技能">Skills</h2>
+                
+                <div class="skill-category">
+                    <strong>Automation & Scripting (Python, Vibe Coding)</strong>
+                    <p class="lang-en">Built efficient workflows that reduced repetitive analysis time by 40%.</p>
+                    <p class="lang-zh hidden">建立高效率流程，降低40%重複分析時間。</p>
+                    <p class="skill-expand-hint lang-en">👆 Tap to see details</p>
+                    <p class="skill-expand-hint lang-zh hidden">👆 點擊查看詳情</p>
+                    
+                    <div class="skill-tooltip lang-en">
+                        <h4>Technical Details</h4>
+                        <ul>
+                            <li>Python: Pandas, NumPy, Matplotlib</li>
+                            <li>Automated data analysis pipelines</li>
+                            <li>Custom testing frameworks</li>
+                            <li>Version control with Git</li>
+                        </ul>
+                    </div>
+                    <div class="skill-tooltip lang-zh hidden">
+                        <h4>技術細節</h4>
+                        <ul>
+                            <li>Python：Pandas、NumPy、Matplotlib</li>
+                            <li>自動化資料分析流程</li>
+                            <li>客製化測試框架</li>
+                            <li>使用 Git 版本控制</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <strong>Acoustic Analysis & Signal Processing</strong>
+                    <p class="lang-en">Experienced in sound quality metrics, data visualization, and root-cause investigation.</p>
+                    <p class="lang-zh hidden">熟悉音質評估、資料視覺化與問題根因分析。</p>
+                    <p class="skill-expand-hint lang-en">👆 Tap to see details</p>
+                    <p class="skill-expand-hint lang-zh hidden">👆 點擊查看詳情</p>
+                    
+                    <div class="skill-tooltip lang-en">
+                        <h4>Core Competencies</h4>
+                        <ul>
+                            <li>FFT & frequency domain analysis</li>
+                            <li>THD, SNR, frequency response measurement</li>
+                            <li>MATLAB signal processing</li>
+                            <li>Audio testing equipment operation</li>
+                        </ul>
+                    </div>
+                    <div class="skill-tooltip lang-zh hidden">
+                        <h4>核心能力</h4>
+                        <ul>
+                            <li>FFT 與頻域分析</li>
+                            <li>THD、SNR、頻率響應測量</li>
+                            <li>MATLAB 訊號處理</li>
+                            <li>音訊測試設備操作</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <strong>Mechanical & System Design</strong>
+                    <p class="lang-en">Integrated acoustic-mechanical design in cross-functional projects to enhance overall performance.</p>
+                    <p class="lang-zh hidden">跨領域整合聲學與機構設計，提升整體性能。</p>
+                    <p class="skill-expand-hint lang-en">👆 Tap to see details</p>
+                    <p class="skill-expand-hint lang-zh hidden">👆 點擊查看詳情</p>
+                    
+                    <div class="skill-tooltip lang-en">
+                        <h4>Design Expertise</h4>
+                        <ul>
+                            <li>CAD modeling (SolidWorks, AutoCAD)</li>
+                            <li>Acoustic chamber design</li>
+                            <li>Vibration analysis</li>
+                            <li>Material selection for sound optimization</li>
+                        </ul>
+                    </div>
+                    <div class="skill-tooltip lang-zh hidden">
+                        <h4>設計專長</h4>
+                        <ul>
+                            <li>CAD 建模（SolidWorks、AutoCAD）</li>
+                            <li>聲學測試腔體設計</li>
+                            <li>振動分析</li>
+                            <li>音質優化材料選擇</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Experience Section -->
+            <section id="experience">
+                <h2 data-en="Experience" data-zh="工作經歷">Experience</h2>
+                
+                <div class="item">
+                    <h3 class="lang-en">Acoustic Engineer — Jabra Collaboration Project</h3>
+                    <h3 class="lang-zh hidden">聲學工程師 — 與 Jabra 聯合研發專案</h3>
+                    <div class="date">2020 - Present</div>
+                    
+                    <ul class="lang-en">
+                        <li>Co-developed Project Gandalf with Jabra engineers, leading to successful mass production and improved sound consistency across product lines.</li>
+                        <li>Automated testing workflows to increase acoustic verification speed by 60%.</li>
+                        <li>Provided cross-team support and training to enhance QA efficiency.</li>
+                    </ul>
+                    
+                    <ul class="lang-zh hidden">
+                        <li>與 Jabra 聲學工程師共同開發「Gandalf」專案並成功量產，提升產品音質一致性。</li>
+                        <li>自動化測試流程，使聲學驗證速度提升 60%。</li>
+                        <li>協助並培訓跨部門團隊，提升品質驗證效率。</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Education Section -->
+            <section id="education">
+                <h2 data-en="Education" data-zh="學歷">Education</h2>
+                
+                <div class="item">
+                    <h3 class="lang-en">M.S. in Microelectromechanical Systems (MEMS)</h3>
+                    <h3 class="lang-zh hidden">微機電系統碩士</h3>
+                    <div class="job-title lang-en">Ming Chi University of Technology</div>
+                    <div class="job-title lang-zh hidden">明志科技大學</div>
+                    <p class="lang-en">Research focus: Wafer-level fabrication and optical-mechanical integration.</p>
+                    <p class="lang-zh hidden">研究方向：晶圓製程與光機電整合設計</p>
+                </div>
+                
+                <div class="item">
+                    <h3 class="lang-en">B.S. in Mechanical and Electro-Optical Engineering</h3>
+                    <h3 class="lang-zh hidden">機械與光電工程學士</h3>
+                    <div class="job-title lang-en">Ming Chi University of Technology</div>
+                    <div class="job-title lang-zh hidden">明志科技大學</div>
+                </div>
+            </section>
+            
+            <!-- Achievements Section -->
+            <section id="achievements">
+                <h2 data-en="Achievements" data-zh="成就與專案">Achievements</h2>
+                
+                <div class="item">
+                    <ul class="lang-en">
+                        <li>Led product acoustic performance validation for 3 major headset models.</li>
+                        <li>Developed testing scripts reused across multiple internal teams.</li>
+                        <li>Recognized by team management for excellence in innovation and efficiency.</li>
+                    </ul>
+                    
+                    <ul class="lang-zh hidden">
+                        <li>主導 3 款主要耳機產品的聲學性能驗證。</li>
+                        <li>開發測試腳本，被多個內部團隊重複使用。</li>
+                        <li>獲團隊管理層表揚創新與效率方面的卓越表現。</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <p class="lang-en">© 2024 Henry Chang. All rights reserved.</p>
+            <p class="lang-zh hidden">© 2024 張亨利 版權所有</p>
+        </footer>
+    </div>
+    
+    <script src="./assets/script.js"></script>
 </body>
 </html>

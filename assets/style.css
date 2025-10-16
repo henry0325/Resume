@@ -444,25 +444,25 @@ footer {
         transform: none;
     }
     .theme-toggle {
-    height: 20px;
+    height: 36px;
 }
 
 
 .theme-toggle::before {
-    width: 16px;
-    height: 16px;
+    width: 28px;
+    height: 28px;
 }
 
 .theme-toggle.dark::before {
-    transform: translateX(10px);
+    transform: translateX(28px);
 }
 
 .theme-icon {
-    font-size: 12px;
+    font-size: 26px;
 }
 
 .theme-toggle.dark .theme-icon {
-    transform: translateX(10px);
+    transform: translateX(28px);
 }
 }
 

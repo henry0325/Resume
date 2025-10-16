@@ -75,7 +75,7 @@ body {
     position: relative;
     width: 60px;
     height: 32px;
-    padding: 4px;
+    padding: 10px 20px;
     background: var(--accent-primary);
     border-radius: 20px;
     display: flex;

@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Henry Chang - Acoustic Engineer</title>
     <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </head>
-<body>
+<div class="side-nav-toggle">☰</div>
+<aside class="side-nav">
+    <ul class="lang-en">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#milestone">Milestones</a></li>
+    </ul>
+    <ul class="lang-zh hidden">
+        <li><a href="#top">首頁</a></li>
+        <li><a href="#about">關於我</a></li>
+        <li><a href="#skills">技能</a></li>
+        <li><a href="#experience">工作經歷</a></li>
+        <li><a href="#education">學歷</a></li>
+        <li><a href="#achievements">成就</a></li>
+        <li><a href="#milestone">里程碑</a></li>
+    </ul>
+</aside>
+
+<body id="top">
     <div class="controls">
         <button class="btn-control" id="langBtn" onclick="toggleLanguage()">中文</button>
         <button class="btn-control theme-toggle" id="themeBtn" onclick="toggleTheme()">
@@ -14,13 +40,13 @@
         </button>
         <button class="btn-control" onclick="downloadPDF()">📄 PDF</button>
     </div>
-    
+
     <div class="container">
         <header>
             <img src="./assets/profile.jpg" alt="Henry Chang" class="profile-photo" id="profilePhoto">
             <h1>Henry Chang</h1>
-            <p class="subtitle" data-en="Acoustic Engineer | Problem Solver | Innovation Driver" 
-               data-zh="聲學工程師 | 問題解決者 | 創新推動者">
+            <p class="subtitle" data-en="Acoustic Engineer | Problem Solver | Innovation Driver"
+                data-zh="聲學工程師 | 問題解決者 | 創新推動者">
                 Acoustic Engineer | Problem Solver | Innovation Driver
             </p>
             <div class="contact-info">
@@ -29,25 +55,27 @@
                 <a href="https://www.linkedin.com/in/henry-chang-0b7292177/" target="_blank">🔗 LinkedIn</a>
             </div>
         </header>
-        
+
         <div class="content">
             <!-- About Section -->
             <section id="about">
                 <h2 data-en="About Me" data-zh="關於我">About Me</h2>
                 <div class="item">
                     <p class="lang-en">
-                        Driven by curiosity and the pursuit of excellence, I specialize in optimizing workflows, bridging cross-functional collaboration, and turning challenges into opportunities for innovation.
+                        Driven by curiosity and the pursuit of excellence, I specialize in optimizing workflows,
+                        bridging cross-functional collaboration, and turning challenges into opportunities for
+                        innovation.
                     </p>
                     <p class="lang-zh hidden">
                         我以好奇心與卓越追求為核心，擅長優化流程、跨部門協作，並將挑戰轉化為創新的契機。
                     </p>
                 </div>
             </section>
-            
+
             <!-- Skills Section -->
             <section id="skills">
                 <h2 data-en="Skills" data-zh="技能">Skills</h2>
-                
+
                 <div class="skill-category">
                     <strong>Automation & Scripting (Python, Vibe Coding)</strong>
                     <p class="lang-en">Built efficient workflows that reduced repetitive analysis time by 40%.</p>
@@ -56,7 +84,7 @@
                         <span class="lang-en">👆 Tap to see details</span>
                         <span class="lang-zh hidden">👆 點擊查看詳情</span>
                     </p>
-                    
+
                     <div class="skill-tooltip lang-en">
                         <h4>Technical Details</h4>
                         <ul>
@@ -74,16 +102,17 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="skill-category">
                     <strong>Acoustic Analysis & Signal Processing</strong>
-                    <p class="lang-en">Experienced in sound quality metrics, data visualization, and root-cause investigation.</p>
+                    <p class="lang-en">Experienced in sound quality metrics, data visualization, and root-cause
+                        investigation.</p>
                     <p class="lang-zh hidden">熟悉音質評估、資料視覺化與問題根因分析。</p>
                     <p class="skill-expand-hint">
                         <span class="lang-en">👆 Tap to see details</span>
                         <span class="lang-zh hidden">👆 點擊查看詳情</span>
                     </p>
-                    
+
                     <div class="skill-tooltip lang-en">
                         <h4>Core Competencies</h4>
                         <ul>
@@ -103,16 +132,17 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="skill-category">
                     <strong>Mechanical & System Design</strong>
-                    <p class="lang-en">Integrated acoustic-mechanical design in cross-functional projects to enhance overall performance.</p>
+                    <p class="lang-en">Integrated acoustic-mechanical design in cross-functional projects to enhance
+                        overall performance.</p>
                     <p class="lang-zh hidden">跨領域整合聲學與機構設計，提升整體性能。</p>
                     <p class="skill-expand-hint">
                         <span class="lang-en">👆 Tap to see details</span>
                         <span class="lang-zh hidden">👆 點擊查看詳情</span>
                     </p>
-                    
+
                     <div class="skill-tooltip lang-en">
                         <h4>Design Expertise</h4>
                         <ul>
@@ -133,22 +163,23 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Experience Section -->
             <section id="experience">
                 <h2 data-en="Experience" data-zh="工作經歷">Experience</h2>
-                
+
                 <div class="item">
                     <h3 class="lang-en">Acoustic Engineer — Jabra Collaboration Project</h3>
                     <h3 class="lang-zh hidden">聲學工程師 — 與 Jabra 聯合研發專案</h3>
                     <div class="date">2019 - 2023</div>
-                    
+
                     <ul class="lang-en">
-                        <li>Co-developed Project Gandalf with Jabra engineers, leading to successful mass production and improved sound consistency across product lines.</li>
+                        <li>Co-developed Project Gandalf with Jabra engineers, leading to successful mass production and
+                            improved sound consistency across product lines.</li>
                         <li>Automated testing workflows to increase acoustic verification speed by 60%.</li>
                         <li>Provided cross-team support and training to enhance QA efficiency.</li>
                     </ul>
-                    
+
                     <ul class="lang-zh hidden">
                         <li>與 Jabra 聲學工程師共同開發「Gandalf」專案並成功量產，提升產品音質一致性。</li>
                         <li>自動化測試流程，使聲學驗證速度提升 60%。</li>
@@ -156,11 +187,11 @@
                     </ul>
                 </div>
             </section>
-            
+
             <!-- Education Section -->
             <section id="education">
                 <h2 data-en="Education" data-zh="學歷">Education</h2>
-                
+
                 <div class="item">
                     <h3 class="lang-en">M.S. in Microelectromechanical Systems (MEMS)</h3>
                     <h3 class="lang-zh hidden">微機電系統碩士</h3>
@@ -169,7 +200,7 @@
                     <p class="lang-en">Research focus: Wafer-level fabrication and optical-mechanical integration.</p>
                     <p class="lang-zh hidden">研究方向：晶圓製程與光機電整合設計</p>
                 </div>
-                
+
                 <div class="item">
                     <h3 class="lang-en">B.S. in Mechanical and Electro-Optical Engineering</h3>
                     <h3 class="lang-zh hidden">機械與光電工程學士</h3>
@@ -177,18 +208,18 @@
                     <div class="job-title lang-zh hidden">明志科技大學</div>
                 </div>
             </section>
-            
+
             <!-- Achievements Section -->
             <section id="achievements">
                 <h2 data-en="Achievements" data-zh="成就與專案">Achievements</h2>
-                
+
                 <div class="item">
                     <ul class="lang-en">
                         <li>Led product acoustic performance validation for 3 major meeting system.</li>
                         <li>Developed testing scripts reused across multiple internal teams.</li>
                         <li>Recognized by team management for excellence in innovation and efficiency.</li>
                     </ul>
-                    
+
                     <ul class="lang-zh hidden">
                         <li>主導 3 款主要會議系統產品的聲學性能驗證。</li>
                         <li>開發測試腳本，被多個內部團隊重複使用。</li>
@@ -196,14 +227,162 @@
                     </ul>
                 </div>
             </section>
+
+            <!-- Milestone Section -->
+            <section id="milestone">
+                <h2 data-en="Milestones" data-zh="里程碑">Milestones</h2>
+                <div class="mobile-scroll" id="milestoneMenu">
+                <div class="milestone-menu">
+                    <h3 class="milestone-menu-item active" data-slide="0" data-en="Recent" data-zh="近況">Recent</h3>
+                    <h3 class="milestone-menu-item" data-slide="1" data-en="In SPI" data-zh="在 SPI">In SPI</h3>
+                    <h3 class="milestone-menu-item" data-slide="2" data-en="In Wistron-2" data-zh="在緯創-2">In Wistron-2</h3>
+                    <h3 class="milestone-menu-item" data-slide="3" data-en="In Wistron-1" data-zh="在緯創-1">In Wistron-1</h3>
+                    <h3 class="milestone-menu-item" data-slide="4" data-en="Students" data-zh="學生">Students</h3>
+                </div>
+                </div>
+            
+                <div class="swiper myMilestoneSwiper">
+                    <div class="swiper-wrapper">
+            
+                        <!-- Recent -->
+                        <div class="swiper-slide lang-en">
+                            <h3>2025 — now</h3>
+                            <ul>
+                                <li>Created website for PDF viewer with gift effect</li>
+                                <li>Created website for managing PDF viewer websites</li>
+                                <li>Learned Dart & HTML development</li>
+                                <li>Familiar with Vibe coding</li>
+                                <li>Created personal resume website</li>
+                                <li>Keep updating...</li>
+                            </ul>
+                        </div>
+                        <div class="swiper-slide lang-zh hidden">
+                            <h3>2025 — now</h3>
+                            <ul>
+                                <li>建立有禮物效果的PDF閱讀器</li>
+                                <li>建立管理PDF閱讀網頁的管理網站</li>
+                                <li>學習Dart & HTML開發</li>
+                                <li>熟悉Vibe coding</li>
+                                <li>建立個人履歷網頁</li>
+                                <li>持續更新...</li>
+                            </ul>
+                        </div>
+            
+                        <!-- In SPI -->
+                        <div class="swiper-slide lang-en">
+                            <h3>2023 — 2025</h3>
+                            <ul>
+                                <li>Used Python to automate work</li>
+                                <li>Learned backend development</li>
+                                <li>Visited family in U.S. & Canada for three months</li>
+                                <li>Created Line official one-click process</li>
+                                <li>Developed service plan</li>
+                                <li>Built website using Wix</li>
+                            </ul>
+                        </div>
+                        <div class="swiper-slide lang-zh hidden">
+                            <h3>2023 — 2025</h3>
+                            <ul>
+                                <li>使用 Python 進行自動化工作</li>
+                                <li>學習後端開發</li>
+                                <li>探訪美加家人三個月</li>
+                                <li>建立 Line 官方帳號一鍵流程</li>
+                                <li>規劃個人服務方案</li>
+                                <li>使用 Wix 建構個人網站</li>
+                            </ul>
+                        </div>
+            
+                        <!-- In Wistron-2 -->
+                        <div class="swiper-slide lang-en">
+                            <h3>2021 — 2023</h3>
+                            <ul>
+                                <li>Changed microphone gasket to resolve leakage</li>
+                                <li>Collaborated with GN on Teams test</li>
+                                <li>Improved assembly fixture</li>
+                                <li>Gandalf mass production success</li>
+                                <li>Surveyed DSP supplier</li>
+                                <li>Leave Wistron, learn Python</li>
+                            </ul>
+                        </div>
+                        <div class="swiper-slide lang-zh hidden">
+                            <h3>2021 — 2023</h3>
+                            <ul>
+                                <li>修改麥克風墊片解決漏音問題</li>
+                                <li>與 GN 協作 Teams 聲學測試</li>
+                                <li>改善組裝治具並提升一致性</li>
+                                <li>Gandalf 成功量產導入市場</li>
+                                <li>評估 DSP 供應商能力</li>
+                                <li>離開緯創，自主學習 Python</li>
+                            </ul>
+                        </div>
+            
+                        <!-- In Wistron-1 -->
+                        <div class="swiper-slide lang-en">
+                            <h3>2019 — 2021</h3>
+                            <ul>
+                                <li>Join Wistron Acoustics</li>
+                                <li>Support Avaya projects to mass production</li>
+                                <li>Support manufacturing acoustic build & tune</li>
+                                <li>Upgraded job level</li>
+                                <li>Collaborated on Gandalf acoustic design</li>
+                                <li>Promotion to Senior Engineer</li>
+                            </ul>
+                        </div>
+                        <div class="swiper-slide lang-zh hidden">
+                            <h3>2019 — 2021</h3>
+                            <ul>
+                                <li>加入緯創聲學團隊</li>
+                                <li>支援 Avaya 系列產品量產</li>
+                                <li>支援產線聲學建置與調校</li>
+                                <li>職位等級調升</li>
+                                <li>參與 Gandalf 聲學設計合作</li>
+                                <li>晉升為資深工程師</li>
+                            </ul>
+                        </div>
+            
+                        <!-- Students -->
+                        <div class="swiper-slide lang-en">
+                            <h3>2012 — 2019</h3>
+                            <ul>
+                                <li>Got the highest score in C++ course</li>
+                                <li>Join HTC DFX intern</li>
+                                <li>Learned 3D scanning measurement...</li>
+                                <li>Pursuing a Master's Degree</li>
+                                <li>Presented research at Nagoya</li>
+                                <li>Completed thesis and master's degree</li>
+                            </ul>
+                        </div>
+                        <div class="swiper-slide lang-zh hidden">
+                            <h3>2012 — 2019</h3>
+                            <ul>
+                                <li>C++ 課程獲得最高成績</li>
+                                <li>加入 HTC DFX 實習</li>
+                                <li>學習 3D 掃描與量測流程並製作SOP提供教學</li>
+                                <li>攻讀碩士學位</li>
+                                <li>於日本名古屋研討會發表研究</li>
+                                <li>完成論文並畢業</li>
+                            </ul>
+                        </div>
+            
+                    </div>
+            
+                    <!-- 控制鍵 -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </section>
+            
+            
         </div>
-        
+
         <footer>
             <p class="lang-en">© 2025 Henry Chang. All rights reserved.</p>
             <p class="lang-zh hidden">© 2025 張思緯 版權所有</p>
         </footer>
     </div>
-    
+
     <script src="./assets/script.js"></script>
 </body>
+
 </html>

@@ -308,7 +308,7 @@ li:before {
     padding: 20px;
     background: var(--bg-secondary);
     border-radius: 8px;
-    border-left: 3px solid var(--accent-secondary);
+    border-left: 4px solid var(--accent-primary);
     box-shadow: var(--card-shadow);
     transition: transform 0.3s, box-shadow 0.3s, border-left-width 0.3s;
     cursor: pointer;

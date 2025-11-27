@@ -8,6 +8,7 @@
     --text-muted: #888888;
     --accent-primary: #667eea;
     --accent-secondary: #764ba2;
+    --accent-tooltip: #764ba2;
     --border-color: #e0e0e0;
     --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -21,6 +22,7 @@
     --text-muted: #808080;
     --accent-primary: #8b9eea;
     --accent-secondary: #9a6bba;
+    --accent-tooltip: #9a6bba;
     --border-color: #404040;
     --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
@@ -42,10 +44,11 @@ body {
 }
 
 .side-nav {
-
+    border: 2px solid var(--accent-primary);
     position: fixed;
     right: 20px;
     top: 50%;
+    padding: 0 50px 0 0;
     transform: translateY(-50%);
     z-index: 999;
     border-radius: 20px;
@@ -62,16 +65,22 @@ body {
     margin: 8px 0;
 }
 
+.side-nav li:hover{
+    transform: scale(1.2) translateX(10%);
+    transition: all 0.3s;
+}
+
 .side-nav a {
     text-decoration: none;
     font-size: 24px;
-    opacity: 0.7;
+    opacity: .8;
     transition: opacity 0.3s;
     color: var(--text-primary);
 }
 
 .side-nav a:hover {
     opacity: 1;
+
 }
 
 .side-nav-toggle {
@@ -325,14 +334,12 @@ li:before {
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(-10px);
-    background: var(--accent-primary);
+    background: var(--accent-tooltip);
     color: white;
     padding: 15px 20px;
     border-radius: 8px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
     z-index: 100;
     min-width: 250px;
     max-width: 400px;
@@ -420,6 +427,16 @@ li:before {
     content: none;
 }
 
+.swiper-pagination-bullet {
+    opacity: 0.5 !important;
+    background: var(--text-primary) !important;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1 !important;
+    background: var(--swiper-pagination-color, var(--swiper-theme-color)) !important;
+}
+
 .milestone-menu {
     display: flex;
     justify-content: center;
@@ -448,19 +465,34 @@ li:before {
     transform: translateY(-50%);
     width: 18px;
     height: 18px;
-    background-image: url("data:image/svg+xml;utf8,<svg fill='black' stroke='black' stroke-width='6' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M15 4l-8 8 8 8'/></svg>");
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: .55;
-    transition: opacity .3s ease, transform .25s ease;
+
+    /* ▼ 标准属性（無前綴） */
+    mask-image: url("data:image/svg+xml;utf8,\<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>\<path d='M15 4l-8 8 8 8' stroke='black' stroke-width='6' fill='none' stroke-linecap='round'/>\</svg>");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+
+    /* ▼ WebKit 前綴（Safari / iOS 必須） */
+    -webkit-mask-image: url("data:image/svg+xml;utf8,\<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>\<path d='M15 4l-8 8 8 8' stroke='black' stroke-width='6' fill='none' stroke-linecap='round'/>\</svg>");
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+
+    /* ▼ 顏色吃 CSS 變數 */
+    background-color: var(--text-primary);
+
+    opacity: 0.55;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
 }
+
+
 
 .milestone-menu-item:first-child::before {
     display: none;
 }
 
 .milestone-menu-item:hover {
-    color: #333;
+    color: var(--accent-secondary);
 }
 
 .milestone-menu-item:hover::before,
@@ -471,7 +503,7 @@ li:before {
 /* 選中狀態（active）視覺強調 */
 .milestone-menu-item.active {
     font-weight: 700;
-    color: #111;
+    color: var(--text-primary);
 }
 
 
@@ -513,7 +545,7 @@ footer {
 }
 
 /* ===== 響應式設計 ===== */
-@media (max-width: 768px) {
+@media (max-width: 1450px) {
     .controls {
         top: 10px;
         flex-direction: column;
@@ -525,9 +557,10 @@ footer {
         top: 16px;
         left: 16px;
         z-index: 2000;
-        background: var(--bg-color, #fff);
+        background: var(--bg-secondary);
         border-radius: 6px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        border: 2px solid var(--accent-primary);
     }
 
     .side-nav {
@@ -538,10 +571,10 @@ footer {
         width: 220px;
         height: 500px;
         padding: 20px;
-        background: var(--bg-color, #fff);
         box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
-        
         z-index: 1999;
+        border-top: 2px solid var(--accent-primary);
+        border-left: 2px solid var(--accent-primary);
     }
 
     /* 展開狀態 */
@@ -682,7 +715,7 @@ footer {
         transform: scale(1.08);
         font-weight: bold;
     }
-    
+
 
 
     /* 左右霧化 */

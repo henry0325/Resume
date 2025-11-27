@@ -215,7 +215,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 初始化
     updateMenuHighlight(0);
-    centerMenuItem(menuItems[0]);
 });
 
 

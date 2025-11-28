@@ -569,7 +569,7 @@ footer {
         display: none;
         /* 隱藏在左側 */
         width: 220px;
-        height: 500px;
+        height: 580x;
         padding: 20px;
         box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
         z-index: 1999;
@@ -580,8 +580,8 @@ footer {
     /* 展開狀態 */
     .side-nav.show {
         display: block;
-        left: 50px;
-        top: 320px;
+        left: 70px;
+        top: 350px;
         transition: all 0.3s ease;
     }
 

@@ -63,25 +63,40 @@ body {
 
 .side-nav li {
     margin: 8px 0;
+    padding: 0 0 0 25px;
 }
 
-.side-nav li:hover{
-    transform: scale(1.2) translateX(10%);
-    transition: all 0.3s;
-}
 
 .side-nav a {
+    display: block; 
     text-decoration: none;
     font-size: 24px;
     opacity: .8;
-    transition: opacity 0.3s;
     color: var(--text-primary);
+    transition: transform .3s ease, opacity .3s ease;
 }
 
-.side-nav a:hover {
+
+
+/* 當滑到某個 li 時，其他 li 的 a 模糊 */
+.side-nav:has(li:hover) li:not(:hover) a {
+    opacity: 0.1;
+}
+
+/* 滑到 li 時那個項目放大、清晰 */
+.side-nav li:hover {
+    transform: scale(1.2) translateX(10%);
+    transition: all .5s ease;
     opacity: 1;
-
 }
+
+/* li 裡面的 a 在 hover 時變清晰（預防性寫法） */
+.side-nav li:hover a {
+    opacity: 1 !important;
+}
+
+
+
 
 .side-nav-toggle {
     display: none;
@@ -563,27 +578,34 @@ footer {
         border: 2px solid var(--accent-primary);
     }
 
+    /* 初始：完全隱藏在左邊 + 不透明度 0 */
     .side-nav {
         position: fixed;
-        top: 0;
-        display: none;
-        /* 隱藏在左側 */
+        top: 70px;
+        left: 70px;
         width: 220px;
-        height: 580x;
-        padding: 20px;
+        padding: 20px 20px 20px 0;
         box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
         z-index: 1999;
         border-top: 2px solid var(--accent-primary);
         border-left: 2px solid var(--accent-primary);
+
+        transform: translateX(-100%) translateY(-100%) scale(0);
+        /* ← 讓它滑出去 */
+        opacity: 0;
+        transition: transform 0.5s ease, opacity 0.5s ease;
     }
 
-    /* 展開狀態 */
-    .side-nav.show {
-        display: block;
-        left: 70px;
-        top: 350px;
-        transition: all 0.3s ease;
+    .side-nav:has(li:hover) li:not(:hover) a {
+        opacity: 1;
     }
+
+    /* 展開狀態：滑進來 + 顯示 */
+    .side-nav.show {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
 
     /* 為避免文字太擠，選單改為直向留空 */
     .side-nav ul li {

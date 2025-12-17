@@ -223,12 +223,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const sideNav = document.querySelector('.side-nav');
 
     navToggle.addEventListener('click', () => {
+        sideNav.style.transition = 'all 0.5s ease';
         sideNav.classList.toggle('show');
     });
 
     // 點擊選單後自動收回（提升手機使用體驗）
     sideNav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
+            sideNav.style.transition = 'all 0.5s ease';
             sideNav.classList.remove('show');
         });
     });
